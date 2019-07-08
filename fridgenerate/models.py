@@ -19,3 +19,4 @@ class Recipe(models.Model):
   image = models.CharField(max_length=500, null=True)
   method = models.TextField(max_length=2000)
   ingredients = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name='recipes')
+
