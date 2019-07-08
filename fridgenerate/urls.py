@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from fridgenerate import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ingredients/', views.IngredientList.as_view()),
+    path('ingredients/<int:pk>', views.IngredientDetail.as_view())
 ]
