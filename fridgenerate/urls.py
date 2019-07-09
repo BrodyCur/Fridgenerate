@@ -20,5 +20,11 @@ from fridgenerate import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ingredients/', views.IngredientList.as_view()),
-    path('ingredients/<int:pk>', views.IngredientDetail.as_view())
+    path('ingredients/<int:pk>', views.IngredientDetail.as_view()),
+    path('recipes/', views.RecipeList.as_view()),
+    path('recipes/<int:pk>', views.RecipeDetail.as_view()),
+    path('users/', views.UserList.as_view()),
+    path('users/<int:pk>', views.UserDetail.as_view()),
+    path('fridges/', views.FridgeList.as_view()),
+    path('fridges/<int:pk>', views.FridgeDetail.as_view()),
 ]
