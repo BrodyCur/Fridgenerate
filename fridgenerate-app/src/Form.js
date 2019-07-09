@@ -15,10 +15,12 @@ const Form = ({onSubmit}) => {
     };
 
         return (
+        <div className="Form">
             <form onSubmit={handleSubmit}>
-                <input ref={ingredients} placeholder="Add an ingredient..." type="text" />
+                <input ref={ingredients} placeholder="Add an ingredient..." type="text" autoFocus />
                 <button>I'm Feeling Hungry</button>
             </form>
+        </div>
         );
     };
 
