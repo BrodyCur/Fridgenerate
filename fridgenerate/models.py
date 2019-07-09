@@ -19,5 +19,5 @@ class Recipe(models.Model):
   image = models.CharField(max_length=500, null=True)
   method = models.TextField(max_length=2000)
   ingredients = models.TextField(max_length=500)
-  ingredient_tags = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name='recipes')
+  # ingredient_tags = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name='recipes')
 
