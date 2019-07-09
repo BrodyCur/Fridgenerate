@@ -19,22 +19,18 @@ def consolidated_recipes():
 
   RECIPES = os.listdir(datasets)
 
-  new_recipes = {}
-
   for x in RECIPES:
     with open(f'{datasets}{x}') as r:
       body = json.load(r)
-      
-
-      for key, val in body.items():
-        if val == {}:
-          pass
-        else:
-          # print(val["picture_link"])
-        
-          Recipe.objects.create(
-            title = val['title'],
-            image = val['picture_link'],
-            method = val['instructions'],
-            ingredients = val['ingredients']
-          )
+      print(body)
+      # for key, val in body.items():
+      #   if val == {}:
+      #     pass
+      #   else:
+      #     print(val)
+          # Recipe.objects.create(
+          #   title = val['title'],
+          #   image = val['picture_link'],
+          #   method = val['instructions'],
+          #   ingredients = val['ingredients'],
+          # )
