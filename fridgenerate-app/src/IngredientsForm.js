@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-const Form = ({onSubmit}) => {
+const IngredientsForm = ({onSubmit}) => {
 
     const ingredients = useRef();
 
@@ -15,9 +15,9 @@ const Form = ({onSubmit}) => {
     };
 
         return (
-        <div className="Form">
+        <div className="Ingredients-form">
             <form onSubmit={handleSubmit}>
-                <input ref={ingredients} placeholder="Add an ingredient..." type="text" autoFocus />
+                <input id="Ingredients-input" ref={ingredients} placeholder="Add an ingredient..." type="text" autoFocus />
                 <button>I'm Feeling Hungry</button>
             </form>
         </div>
@@ -25,4 +25,4 @@ const Form = ({onSubmit}) => {
     };
 
 
-export default Form;
+export default IngredientsForm;

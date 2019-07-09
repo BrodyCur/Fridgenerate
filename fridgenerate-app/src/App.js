@@ -1,12 +1,16 @@
 import React from 'react';
 import Landing from './LandingPage';
-import Form from './Form';
+import IngredientsForm from './IngredientsForm';
+import RecipesForm from './RecipesForm';
+import TopNav from './TopNav';
 
 const App = () => {
   return (
     <div>
+      <TopNav />
+      <RecipesForm />
       <Landing />
-      <Form />
+      <IngredientsForm />
     </div>
     
   );
