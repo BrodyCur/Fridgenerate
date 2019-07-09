@@ -17,7 +17,7 @@ const RecipesForm = ({onSubmit}) => {
         return (
         <div className="Recipes-form">
             <form onSubmit={handleSubmit}>
-                <input id="Recipes-input" ref={recipes} placeholder="Search recipes..." type="text" autoFocus />
+                <input id="Recipes-input" ref={recipes} placeholder= "&#61442; Search recipes..." type="text" autoFocus />
             </form>
         </div>
         );

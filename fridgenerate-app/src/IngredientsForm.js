@@ -18,7 +18,7 @@ const IngredientsForm = ({onSubmit}) => {
         <div className="Ingredients-form">
             <form onSubmit={handleSubmit}>
                 <input id="Ingredients-input" ref={ingredients} placeholder="Add an ingredient..." type="text" autoFocus />
-                <button>I'm Feeling Hungry</button>
+                <button id="Ingredients-button" type="submit">I'm Feeling Hungry</button>
             </form>
         </div>
         );

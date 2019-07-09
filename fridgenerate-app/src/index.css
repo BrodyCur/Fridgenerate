@@ -20,6 +20,25 @@
   text-align: center;
 }
 
+#Ingredients-button {
+  margin: 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  border-color: black;
+  transition-duration: 0.4s;
+  font-family: arial,sans-serif;
+}
+
+#Ingredients-button:hover {
+  background-color: black;
+  color:white;
+}
+
+#Ingredients-button:active {
+  transform: translateY(4px);
+}
+
 .Ingredients-form #Ingredients-input {
   height: 50px;
   width: 500px;
@@ -29,7 +48,7 @@
 
 Input, Input::-webkit-input-placeholder {
   font-size: 18px;
-  font-family: 'Indie Flower', cursive;
+  font-family: FontAwesome, 'Indie Flower', cursive;
 }
 
 .Recipes-form #Recipes-input {
