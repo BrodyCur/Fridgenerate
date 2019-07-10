@@ -1,6 +1,10 @@
+from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect, reverse
 from rest_framework import generics
 from .models import User, Ingredient, Recipe, Fridge
 from .serializers import IngredientSerializer, RecipeSerializer, UserSerializer, FridgeSerializer
+
 
 class IngredientList(generics.ListCreateAPIView):
   queryset = Ingredient.objects.all()
@@ -10,9 +14,9 @@ class IngredientDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = Ingredient.objects.all()
   serializer_class = IngredientSerializer
 
-class RecipeList(generics.ListCreateAPIView):
-  queryset = Recipe.objects.all()
-  serializer_class = RecipeSerializer
+# class RecipeList(generics.ListCreateAPIView):
+#   queryset = Recipe.objects.all()
+#   serializer_class = RecipeSerializer
 
 class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = Recipe.objects.all()
@@ -33,3 +37,7 @@ class FridgeList(generics.ListCreateAPIView):
 class FridgeDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = Fridge.objects.all()
   serializer_class = FridgeSerializer
+
+
+
+

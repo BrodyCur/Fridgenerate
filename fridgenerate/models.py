@@ -17,6 +17,6 @@ class Fridge(models.Model):
 class Recipe(models.Model):
   title = models.CharField(max_length=225)
   image = models.CharField(max_length=500, null=True)
-  method = models.TextField(max_length=2000)
+  instructions = models.TextField(max_length=2000)
   ingredients = models.ManyToManyField(Ingredient)
   
