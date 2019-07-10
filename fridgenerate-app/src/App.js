@@ -3,7 +3,7 @@ import Landing from './LandingPage';
 import IngredientsForm from './IngredientsForm';
 import RecipesForm from './RecipesForm';
 import TopNav from './TopNav';
-import Test from './convert';
+import IngredientsSearch from './IngredientsSearch';
 
 
 const App = () => {
@@ -14,8 +14,8 @@ const App = () => {
       <TopNav />
       <RecipesForm />
       <Landing />
-      <IngredientsForm />
-      <Test />
+      {/* <IngredientsForm /> */}
+      <IngredientsSearch />
     </div>
     
   );

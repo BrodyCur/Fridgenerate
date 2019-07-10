@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import ReactTags from 'react-tag-autocomplete';
 
-
-const Test = () => {
+const IngredientsSearch = () => {
     
     const initialTags = [
         {id: 1, name: "Apples"},
@@ -37,17 +36,25 @@ const Test = () => {
     }
 
     const handleSuggestion = (tag) => {
-        // Do an axios call to an endpoint that returns Ingredients matching string
+        // Do an axios call to an endpoint that returns Ingredients matching sub-string
+    }
+
+    const handleSubmit = () => {
+        // Axios call with Tags
     }
 
     return (
-        <ReactTags
-            tags={tags}
-            suggestions={suggestions}
-            handleDelete={handleDelete}
-            handleAddition={handleAddition} />
+        <div>
+            <ReactTags
+                tags={tags}
+                suggestions={suggestions}
+                handleDelete={handleDelete}
+                handleAddition={handleAddition}
+                placeholder="Add an ingredient..." />
+                <button className="Ingredients-button" type="submit">I'm Feeling Hungry</button>
+        </div>
     )
 }
 
 
-export default Test;
+export default IngredientsSearch;

@@ -6,7 +6,7 @@
 .Top-nav h1 {
   font-family: 'Rubik Mono One', sans-serif;
   font-size: 30px;
-  color: white;
+  color: #007eff;
   text-align: center;
 }
 
@@ -16,11 +16,7 @@
   font-family: 'Indie Flower', cursive;
 }
 
-.Ingredients-form {
-  text-align: center;
-}
-
-#Ingredients-button {
+.Ingredients-button {
   margin: 20px;
   border-radius: 25px;
   font-size: 14px;
@@ -30,20 +26,13 @@
   font-family: arial,sans-serif;
 }
 
-#Ingredients-button:hover {
+.Ingredients-button:hover {
   background-color: black;
-  color:white;
+  color:#007eff;
 }
 
-#Ingredients-button:active {
+.Ingredients-button:active {
   transform: translateY(4px);
-}
-
-.Ingredients-form #Ingredients-input {
-  height: 50px;
-  width: 500px;
-  font-size:24px;
-  padding: 5px;
 }
 
 Input, Input::-webkit-input-placeholder {
@@ -89,44 +78,37 @@ Input, Input::-webkit-input-placeholder {
  *   </div>
  */
 .react-tags {
+  margin: 5px;
+  padding: 5px;
   position: relative;
-  padding: 6px 0 0 6px;
   border: 1px solid #D1D1D1;
-  border-radius: 1px;
-
-  /* shared font styles */
-  font-size: 1em;
-  line-height: 1.2;
-
-  /* clicking anywhere will focus the input */
+  font-size: 18px;
+  line-height: 2;
   cursor: text;
 }
 
 .react-tags.is-focused {
-  border-color: #B1B1B1;
+  border-color: #007eff;
 }
 
 .react-tags__selected {
   display: inline;
+  font-family: 'Indie Flower', cursive;
 }
 
 .react-tags__selected-tag {
   display: inline-block;
   box-sizing: border-box;
-  margin: 0 6px 6px 0;
-  padding: 6px 8px;
-  border: 1px solid #D1D1D1;
-  border-radius: 2px;
-  background: #F1F1F1;
-
-  /* match the font styles */
+  margin: 0 10px 6px 0;
+  border: 1px solid #c2e0ff;
+  background: #ebf5ff;
   font-size: inherit;
   line-height: inherit;
+  color: #007eff;
 }
 
 .react-tags__selected-tag:after {
   content: '\2715';
-  color: #AAA;
   margin-left: 8px;
 }
 
@@ -137,12 +119,7 @@ Input, Input::-webkit-input-placeholder {
 
 .react-tags__search {
   display: inline-block;
-
-  /* match tag layout */
-  padding: 7px 2px;
-  margin-bottom: 6px;
-
-  /* prevent autoresize overflowing the container */
+  margin: 5px;
   max-width: 100%;
 }
 
