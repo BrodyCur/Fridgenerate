@@ -11,12 +11,12 @@ class Ingredient(models.Model):
   source = models.URLField(max_length=500, blank=True)
 
 class Fridge(models.Model):
-  ingredients = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+  ingredients = models.ManyToManyField(Ingredient)
   owners = models.ForeignKey(User, on_delete=models.CASCADE, related_name='fridges')
 
 class Recipe(models.Model):
   title = models.CharField(max_length=225)
   image = models.CharField(max_length=500, null=True)
   method = models.TextField(max_length=2000)
-  ingredients = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name='recipes')
-
+  ingredients = models.ManyToManyField(Ingredient)
+  
