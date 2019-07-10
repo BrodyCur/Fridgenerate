@@ -1,18 +1,17 @@
 import React, { useRef } from 'react';
 
-const RecipesForm = ({onSubmit}) => {
+const RecipesForm = ({ onSubmit }) => {
 
     const recipes = useRef();
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const s = {
-            recipe: String(recipes.current.value),
+            const query = String(recipes.current.value)
+            console.log("Query:", query)
         };
         
-        onSubmit(s);
-    };
+        // onSubmit(s);
 
         return (
         <div className="Recipes-form">
