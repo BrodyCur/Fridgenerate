@@ -11,7 +11,7 @@ class IngredientDetail(generics.RetrieveUpdateDestroyAPIView):
   serializer_class = IngredientSerializer
 
 class RecipeList(generics.ListCreateAPIView):
-  queryset = Recipe.objects.all()
+  queryset = Recipe.objects.all()[:10]
   serializer_class = RecipeSerializer
 
 class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):

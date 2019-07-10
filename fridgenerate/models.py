@@ -20,3 +20,8 @@ class Recipe(models.Model):
   method = models.TextField(max_length=2000)
   ingredients_tags = models.ManyToManyField(Ingredient)
   ingredients = models.TextField(max_length=500)
+
+class RecipeTest(models.Model):
+  ingredients = models.TextField(max_length=2000)
+  recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='test')
+
