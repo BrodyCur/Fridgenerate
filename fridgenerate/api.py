@@ -11,26 +11,28 @@ def get_recipe(request, id):
                           "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
                           "X-RapidAPI-Key": api_key
                         })
+
   recipe = json.loads(response.content)
   recipe_title = recipe['title']
   recipe_image = recipe['image']
   recipe_instruction = recipe['instructions']
   recipe_ingredients = recipe['extendedIngredients']
+
   ingredients = []
   for ingredient in recipe_ingredients: 
     ingredients.append(ingredient['name'])
 
-  context = {
+  return JsonResponse({
     'name': recipe_title,
     'image': recipe_image,
     'ingredients': ingredients,
     'instructions': recipe_instruction
-  }
-
-  return JsonResponse(context)
+  })
 
 
 def get_recipes_by_ingredients(request):
+  # request.params
+
   ingredients_url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?&ingredients=bacon%2Clettuce%2Ctomato%2Cmayonnaise"
 
   response = requests.get(ingredients_url,
@@ -42,25 +44,12 @@ def get_recipes_by_ingredients(request):
 
   recipe_list = json.loads(response.content)
 
-  recipes = []
 
-  for recipe in recipe_list:
-    recipe_id = recipe['id']
-    display_title = recipe['title']
-    display_image = recipe['image']
-    missing_ingredients = recipe['missedIngredientCount']
-  
-    new_recipe = {
-      'id': recipe_id,
-      'name': display_title,
-      'image': display_image,
-      'missing_ingredients': missing_ingredients
-    }
-
-    recipes.append(new_recipe)
-  
-  context = {
-    'recipes': recipes
-  }
-
-  return JsonResponse(context)
+  return JsonResponse({
+    'recipes': [{
+      'id': r['id'],
+      'name': r['title'],
+      'image': r['image'],
+      'missing_ingredients': r['missedIngredientCount']
+    } for r in recipe_list]
+  })
