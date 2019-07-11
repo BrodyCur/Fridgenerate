@@ -49,7 +49,7 @@ const IngredientsSearch = () => {
         console.log("Tags:", tags)
         
         axios.post(url, {
-            'ingredients': tags.map((tag) => tag.name).join(",")
+            'data': tags.map((tag) => tag.name).join(",")
         })
         .then(response => {
             console.log(response.data);
@@ -57,6 +57,14 @@ const IngredientsSearch = () => {
         .catch(e => {
             console.log("errors:", e)
         })
+
+        // axios.get(url)
+        // .then(response => {
+        //     console.log(response.data)
+        // })
+        // .catch(e => {
+        //     console.log("errors:", e)
+        // })
         
     }
 
