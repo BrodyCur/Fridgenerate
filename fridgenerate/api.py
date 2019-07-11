@@ -35,7 +35,7 @@ def get_recipes_by_ingredients(request):
   
   print("POST:", ingredients_query)
 
-  ingredients_url = f"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ingredients={ingredients_query}"
+  ingredients_url = f"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=15&ingredients={ingredients_query}"
 
   response = requests.get(ingredients_url,
     headers={

@@ -57,14 +57,6 @@ const IngredientsSearch = () => {
         .catch(e => {
             console.log("errors:", e)
         })
-
-        // axios.get(url)
-        // .then(response => {
-        //     console.log(response.data)
-        // })
-        // .catch(e => {
-        //     console.log("errors:", e)
-        // })
         
     }
 
