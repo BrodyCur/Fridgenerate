@@ -8,7 +8,6 @@ router.register('ingredients', views.IngredientView)
 router.register('recipes', views.RecipeView)
 router.register('users', views.UserView)
 router.register('fridges', views.FridgeView)
-# router.register('recipe', api.get_recipe)
 
 urlpatterns = [
     path('', include(router.urls)),
