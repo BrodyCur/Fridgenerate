@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import ReactTags from 'react-tag-autocomplete';
+import { Link } from 'react-router-dom';
+
 
 const IngredientsSearch = () => {
     
@@ -52,7 +54,9 @@ const IngredientsSearch = () => {
                 handleAddition={handleAddition}
                 placeholder="Add an ingredient..." />
                 <div className="btn">
+                    <Link to ='/recipes'>
                     <button className="Ingredients-button" type="submit"><span>I'm Feeling Hungry</span></button>
+                    </Link>
                 </div>
         </div>
 
