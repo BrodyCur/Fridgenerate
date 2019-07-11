@@ -1,24 +1,23 @@
 import React from 'react';
 import Landing from './LandingPage';
-import RecipesSearch from './RecipesSearch';
-import TopNav from './TopNav';
-import IngredientsSearch from './IngredientsSearch';
 import RecipeListing from './RecipesListing';
 import RecipeDetails from './RecipeDetails';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 
 const App = () => {
 
 
-  return (
+  return ( 
+    <Router>
     <div>
-      <TopNav />
-      <RecipesSearch />
-      <Landing />
-      <IngredientsSearch />
-      <RecipeListing />
-      <RecipeDetails />
+      <Switch>
+        <Route path="/" exact component={Landing} />
+        <Route path="/recipes" component={RecipeListing} />
+        <Route path="/recipe-details" component={RecipeDetails} />
+      </Switch>
     </div>
+    </Router> 
     
   );
 }
