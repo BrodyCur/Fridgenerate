@@ -8,7 +8,7 @@ def get_recipe(request, id):
     response = requests.get(f"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/{id}/information",
                           headers={
                             "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-                            "X-RapidAPI-Key": "437512a560msh16d6f105bea7fe7p128bd7jsn52407337b6f9"
+                            "X-RapidAPI-Key": 
                           })
     recipe = json.loads(response.content)
     recipe_title = recipe['title']
