@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'fridgenerate_app',
+    'fridgenerate_django_app',
     'rest_framework',
     'corsheaders',
 ]

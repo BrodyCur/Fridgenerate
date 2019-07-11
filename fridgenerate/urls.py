@@ -15,12 +15,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from fridgenerate_app import api
+from fridgenerate_django_app import api
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('fridgenerate_app.urls')),
+    path('', include('fridgenerate_django_app.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/token/', TokenObtainPairView.as_view()),
     path('api/token/refresh/', TokenRefreshView.as_view()),
