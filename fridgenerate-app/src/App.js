@@ -1,9 +1,10 @@
 import React from 'react';
 import Landing from './LandingPage';
-import IngredientsForm from './IngredientsForm';
-import RecipesForm from './RecipesForm';
+import RecipesSearch from './RecipesSearch';
 import TopNav from './TopNav';
 import IngredientsSearch from './IngredientsSearch';
+import RecipeListing from './RecipesListing';
+import RecipeDetails from './RecipeDetails';
 
 
 const App = () => {
@@ -12,10 +13,11 @@ const App = () => {
   return (
     <div>
       <TopNav />
-      <RecipesForm />
+      <RecipesSearch />
       <Landing />
-      {/* <IngredientsForm /> */}
       <IngredientsSearch />
+      <RecipeListing />
+      <RecipeDetails />
     </div>
     
   );

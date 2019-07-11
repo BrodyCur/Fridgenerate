@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-const RecipesForm = ({ onSubmit }) => {
+const RecipesSearch = ({ onSubmit }) => {
 
     const recipes = useRef();
 
@@ -23,4 +23,4 @@ const RecipesForm = ({ onSubmit }) => {
     };
 
 
-export default RecipesForm;
+export default RecipesSearch;

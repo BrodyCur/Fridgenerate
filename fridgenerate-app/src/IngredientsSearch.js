@@ -51,8 +51,11 @@ const IngredientsSearch = () => {
                 handleDelete={handleDelete}
                 handleAddition={handleAddition}
                 placeholder="Add an ingredient..." />
-                <button className="Ingredients-button" type="submit">I'm Feeling Hungry</button>
+                <div className="btn">
+                    <button className="Ingredients-button" type="submit"><span>I'm Feeling Hungry</span></button>
+                </div>
         </div>
+
     )
 }
 
