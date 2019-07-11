@@ -28,6 +28,6 @@ urlpatterns = [
     path('users/<int:pk>', views.UserDetail.as_view()),
     path('fridges/', views.FridgeList.as_view()),
     path('fridges/<int:pk>', views.FridgeDetail.as_view()),
-    path('recipe/<int:id>', api.get_recipe),
+    path('recipe_details/<int:recipe_id>/', api.get_recipe),
     path('recipes/', api.get_recipes_by_ingredients)
 ]

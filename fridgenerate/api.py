@@ -5,22 +5,26 @@ import os
 import pdb
 from fridgenerate.config import api_key
 
-def get_recipe(request, id):
-  response = requests.get(f"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/{id}/information",
+def get_recipe(request, recipe_id):
+  recipe_id = json.loads(request.body.decode('utf-8'))
+
+  print("POST:", recipe_id)
+
+  response = requests.get(f"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/{recipe_id}/information",
                         headers={
                           "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
                           "X-RapidAPI-Key": api_key
                         })
 
   recipe = json.loads(response.content)
-  recipe_title = recipe['title']
-  recipe_image = recipe['image']
-  recipe_instruction = recipe['instructions']
-  recipe_ingredients = recipe['extendedIngredients']
+  recipe_title = recipe["title"]
+  recipe_image = recipe["image"]
+  recipe_instruction = recipe["instructions"]
+  recipe_ingredients = recipe["extendedIngredients"]
 
   ingredients = []
   for ingredient in recipe_ingredients: 
-    ingredients.append(ingredient['name'])
+    ingredients.append(ingredient["name"])
 
   return JsonResponse({
     'name': recipe_title,
