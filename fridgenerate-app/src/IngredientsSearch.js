@@ -49,7 +49,7 @@ const IngredientsSearch = () => {
         console.log("Tags:", tags)
         
         axios.post(url, {
-            'data': tags.map((tag) => tag.name).join(",")
+            'data': {'ingredients': tags.map((tag) => tag.name).join(",")}
         })
         .then(response => {
             console.log(response.data);

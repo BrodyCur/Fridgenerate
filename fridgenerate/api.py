@@ -31,7 +31,7 @@ def get_recipe(request, id):
 
 
 def get_recipes_by_ingredients(request):
-  ingredients_query = request.POST.get('data')
+  ingredients_query = json.loads(request.body.decode('utf-8'))
   
   print("POST:", ingredients_query)
 
