@@ -8,7 +8,7 @@ const RecipeListing = () => {
         const handleClick = (e) => {
             e.preventDefault();
 
-            const url = `http://localhost:8000/recipe_details/${recipe.id}/`
+            const url = "http://localhost:8000/recipe_details/"
 
             axios.post(url, {
                 'data': {'recipe_id': recipe.id}
@@ -22,9 +22,10 @@ const RecipeListing = () => {
         }
 
         return ( 
-            <section onClick={handleClick} className="Recipe-listing">
+            <section className="Recipe-listing">
                 <h2>{recipe.name}</h2>
                 <img src={recipe.image} />
+                <button onClick={handleClick}>Details</button>
             </section>
         );
     });

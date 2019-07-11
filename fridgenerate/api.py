@@ -5,7 +5,7 @@ import os
 import pdb
 from fridgenerate.config import api_key
 
-def get_recipe(request, recipe_id):
+def get_recipe(request):
   recipe_id = json.loads(request.body.decode('utf-8'))
 
   print("POST:", recipe_id)
