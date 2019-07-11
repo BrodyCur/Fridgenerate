@@ -3,12 +3,13 @@ import requests
 import json
 import os
 import pdb
+from fridgenerate.config import api_key
 
 def get_recipe(request, id):
   response = requests.get(f"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/{id}/information",
                         headers={
                           "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-                          "X-RapidAPI-Key": "629f4e16afmsh4cfe6934ab567f9p1aa279jsne98d5ef9c4ff"
+                          "X-RapidAPI-Key": api_key
                         })
   recipe = json.loads(response.content)
   recipe_title = recipe['title']
@@ -26,16 +27,16 @@ def get_recipe(request, id):
     'instructions': recipe_instruction
   }
 
-  return JsonResponse({'recipe': recipe})
+  return JsonResponse(context)
 
 
 def get_recipes_by_ingredients(request):
-  ingredients_url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?&ingredients=apples%2Cflour%2Csugar"
+  ingredients_url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?&ingredients=bacon%2Clettuce%2Ctomato%2Cmayonnaise"
 
   response = requests.get(ingredients_url,
     headers={
       "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      "X-RapidAPI-Key": "629f4e16afmsh4cfe6934ab567f9p1aa279jsne98d5ef9c4ff"
+      "X-RapidAPI-Key": api_key
     }
   )
 
