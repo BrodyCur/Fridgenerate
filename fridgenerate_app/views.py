@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets
 from .models import User, Ingredient, Recipe, Fridge
 from .serializers import IngredientSerializer, RecipeSerializer, UserSerializer, FridgeSerializer
 
