@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import ReactTags from 'react-tag-autocomplete';
+import axios from 'axios';
+import qs from 'qs';
 import { Link } from 'react-router-dom';
-
 
 const IngredientsSearch = () => {
     
@@ -26,7 +27,6 @@ const IngredientsSearch = () => {
         console.log("Handle delete:", i)
         let newTags = tags.slice(0)
         newTags.splice(i, 1)
-
         setTags( newTags )
     }
 
@@ -41,23 +41,39 @@ const IngredientsSearch = () => {
         // Do an axios call to an endpoint that returns Ingredients matching sub-string
     }
 
-    const handleSubmit = () => {
-        // Axios call with Tags
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+
+        const url = "http://localhost:8000/recipes/";
+
+        console.log("Tags:", tags)
+        
+        axios.post(url, {
+            'data': {'ingredients': tags.map((tag) => tag.name).join(",")}
+        })
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(e => {
+            console.log("errors:", e)
+        })
+        
     }
 
     return (
         <div>
-            <ReactTags
-                tags={tags}
-                suggestions={suggestions}
-                handleDelete={handleDelete}
-                handleAddition={handleAddition}
-                placeholder="Add an ingredient..." />
-                <div className="btn">
-                    <Link to ='/recipes'>
-                    <button className="Ingredients-button" type="submit"><span>I'm Feeling Hungry</span></button>
-                    </Link>
-                </div>
+            <form onSubmit={handleSubmit}>
+                <ReactTags
+                    tags={tags}
+                    suggestions={suggestions}
+                    handleDelete={handleDelete}
+                    handleAddition={handleAddition}
+                    placeholder="Add an ingredient..." />
+                    <div className="btn">
+                        <button className="Ingredients-button" type="submit"><span>I'm Feeling Hungry</span></button>
+                    </div>
+            </form>
         </div>
 
     )

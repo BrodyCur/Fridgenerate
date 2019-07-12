@@ -20,9 +20,22 @@ from fridgenerate_django_app import api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
+    path('ingredients/', views.IngredientList.as_view()),
+    # path('ingredients/<int:pk>', views.IngredientDetail.as_view()),
+    path('recipes/<int:pk>', views.RecipeList.as_view()),
+    # path('recipes/<int:pk>', views.RecipeDetail.as_view()),
+    path('users/', views.UserList.as_view()),
+    path('users/<int:pk>', views.UserDetail.as_view()),
+    path('fridges/', views.FridgeList.as_view()),
+    path('fridges/<int:pk>', views.FridgeDetail.as_view()),
+    path('recipe_details/', api.get_recipe),
+    path('recipes/', api.get_recipes_by_ingredients)
+=======
     path('', include('fridgenerate_django_app.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/token/', TokenObtainPairView.as_view()),
     path('api/token/refresh/', TokenRefreshView.as_view()),
     path('api/rest/fridges', api.rest_api)
+>>>>>>> master
 ]
