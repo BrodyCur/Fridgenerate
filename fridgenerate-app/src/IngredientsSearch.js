@@ -7,6 +7,7 @@ const IngredientsSearch = () => {
 
     const [tags, setTags] = useState([]);
     const [recipeList, setRecipeList] = useState([])
+    const [currentRecipe, setCurrentRecipe] = useState({})
 
     const handleDelete = (i) => {
         console.log("Handle delete:", i);
@@ -52,11 +53,29 @@ const IngredientsSearch = () => {
         })
         .catch(e => {
             console.log("errors:", e)
+        });
+    };
+
+    const handleClick = (e) => {
+        e.preventDefault();
+
+        console.log(recipe)
+
+        const url = "http://localhost:8000/recipe_details/"
+
+        axios.post(url, {
+            'data': {'recipe_id': recipe.id}
+        })
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(e => {
+            console.log("errors", e)
         })
     }
 
 
-     return (
+    return (
         <div>
             <form onSubmit={handleSubmit}>
                 <ReactTags
@@ -79,7 +98,7 @@ const IngredientsSearch = () => {
                     }) }
                 </ul>
             </div>
-       </div>
+        </div>
     )
 };
 
