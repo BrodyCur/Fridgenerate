@@ -1,5 +1,8 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 const TEST = {
-    api_key:  '<REPLACE_THIS_WITH_RECIPE_API_KEY>',
+    api_key:  process.env.REACT_APP_SPOONACULAR_API_KEY,
     recipes: [
         {
             'id': 1,
