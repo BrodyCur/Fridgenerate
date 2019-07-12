@@ -1,8 +1,11 @@
 import React from 'react';
-import TEST from './RecipeTest'
 import axios from 'axios';
+import TEST from './RecipeTest';
+import RecipeDetails from './RecipeDetails';
+import { Link } from 'react-router-dom';
 
 const RecipeListing = () => {
+    
     const recipeList = TEST.recipes.map((recipe) => {
 
         const handleClick = (e) => {
@@ -23,10 +26,12 @@ const RecipeListing = () => {
             })
         }
 
-        return ( 
+        return (
             <section className="Recipe-listing">
-                <h2>{recipe.name}</h2>
-                <img src={recipe.image} />
+                <div className="Recipe-title"><h2>{recipe.name}</h2></div>
+                <Link to='/recipe-details'>
+                <div className="Recipe-image"><img src={recipe.image} /></div>
+                </Link>
                 <button onClick={handleClick}>Details</button>
             </section>
         );

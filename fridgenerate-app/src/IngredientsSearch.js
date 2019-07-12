@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactTags from 'react-tag-autocomplete';
 import axios from 'axios';
 import qs from 'qs';
+import { Link } from 'react-router-dom';
 
 const IngredientsSearch = () => {
     

@@ -1,5 +1,4 @@
 """fridgenerate URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
@@ -14,12 +13,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from fridgenerate import views
-from fridgenerate import api
+from django.urls import path, include
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from fridgenerate_django_app import api
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('ingredients/', views.IngredientList.as_view()),
     # path('ingredients/<int:pk>', views.IngredientDetail.as_view()),
     path('recipes/<int:pk>', views.RecipeList.as_view()),
@@ -30,4 +31,11 @@ urlpatterns = [
     path('fridges/<int:pk>', views.FridgeDetail.as_view()),
     path('recipe_details/', api.get_recipe),
     path('recipes/', api.get_recipes_by_ingredients)
+=======
+    path('', include('fridgenerate_django_app.urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/token/', TokenObtainPairView.as_view()),
+    path('api/token/refresh/', TokenRefreshView.as_view()),
+    path('api/rest/fridges', api.rest_api)
+>>>>>>> master
 ]
