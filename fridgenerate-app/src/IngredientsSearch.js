@@ -46,13 +46,14 @@ const IngredientsSearch = () => {
             'data': {'ingredients': tags.map((tag) => tag.name).join(",")}
         })
         .then(response => {
-            setRecipeList(response.data)
+            setRecipeList(response.data.recipes)
             console.log(recipeList);
         })
         .catch(e => {
             console.log("errors:", e)
         })
     }
+
 
      return (
         <div>
@@ -69,6 +70,14 @@ const IngredientsSearch = () => {
                     <button className="Ingredients-button" type="submit"><span>I'm Feeling Hungry</span></button>
                 </div>
             </form>
+
+            <div id="matching_recipes">
+                <ul>
+                    {recipeList.map( (recipe) => {
+                        return <li key={recipe.id}>{recipe.name}</li>
+                    }) }
+                </ul>
+            </div>
        </div>
     )
 };
