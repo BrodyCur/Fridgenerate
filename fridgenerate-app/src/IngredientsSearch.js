@@ -74,7 +74,7 @@ const IngredientsSearch = () => {
             <div id="matching_recipes">
                 <ul>
                     {recipeList.map( (recipe) => {
-                        return <li key={recipe.id}>{recipe.name}</li>
+                        return <li key={recipe.id}>{recipe.name}<img src={recipe.image} /></li>
                     }) }
                 </ul>
             </div>
