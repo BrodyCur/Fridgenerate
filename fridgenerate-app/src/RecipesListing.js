@@ -8,6 +8,8 @@ const RecipeListing = () => {
         const handleClick = (e) => {
             e.preventDefault();
 
+            console.log(recipe)
+
             const url = "http://localhost:8000/recipe_details/"
 
             axios.post(url, {
@@ -31,12 +33,11 @@ const RecipeListing = () => {
     });
     
     return (
-    <div>
-        <h1>Recipes</h1>
-        {recipeList}
-    </div>
-            
+        <div>
+            <h1>Recipes</h1>
+            {recipeList}
+        </div>
     );
 };
-     
+
 export default RecipeListing;

@@ -6,8 +6,9 @@ import pdb
 from fridgenerate.config import api_key
 
 def get_recipe(request):
-  recipe_id = json.loads(request.body.decode('utf-8'))
+  recipe_id = json.loads(request.body)['data']['recipe_id']
 
+  print('request', json.loads(request.body)['data']['recipe_id'])
   print("POST:", recipe_id)
 
   response = requests.get(f"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/{recipe_id}/information",
