@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactTags from 'react-tag-autocomplete';
 import axios from 'axios';
-import TEST from './RecipeTest';
+import { Link } from 'react-router-dom';
 
 const IngredientsSearch = () => {
 
@@ -49,31 +49,66 @@ const IngredientsSearch = () => {
         })
         .then(response => {
             setRecipeList(response.data.recipes)
-            console.log(recipeList);
         })
         .catch(e => {
             console.log("errors:", e)
         });
     };
 
-    const handleClick = (e) => {
-        e.preventDefault();
 
-        console.log(recipe)
+    const RecipeDetails = ({ currentRecipe }) => {
+        return (
+            <section className="recipe-details">
+                <div className="recipe-summary">
+                    <h1> {currentRecipe.name}</h1>
+                    <img src={currentRecipe.image} />
+                    <p>{currentRecipe.ingredients}</p>
+                    <p>{currentRecipe.instructions}</p>
+                </div>
+            </section>
+        )
+    };
 
-        const url = "http://localhost:8000/recipe_details/"
 
-        axios.post(url, {
-            'data': {'recipe_id': recipe.id}
-        })
-        .then(response => {
-            console.log(response.data);
-        })
-        .catch(e => {
-            console.log("errors", e)
-        })
+    const RecipeResult = ({recipe}) => {
+        
+        const handleClick = (e) => {
+            e.preventDefault();
+    
+            const url = "http://localhost:8000/recipe_details/"
+    
+            axios.post(url, {
+                'data': {
+                    'recipe_id': recipe.id
+                }
+            })
+            .then(response => {
+                setCurrentRecipe(response.data)
+            })
+            .catch(e => {
+                console.log("errors", e)
+            })
+        }
+
+        return (
+                <li onClick={handleClick} key={recipe.id}>
+                    {recipe.name}
+                    <img src={recipe.image} />
+                </li>
+        )
     }
 
+    const Results = ({recipeList }) => {
+        return (
+            <ul>
+                {
+                    recipeList.map( (recipe) => {
+                        return <RecipeResult key={recipe.id} recipe={recipe} />
+                    })
+                }
+            </ul>
+        ) 
+    }
 
     return (
         <div>
@@ -91,13 +126,16 @@ const IngredientsSearch = () => {
                 </div>
             </form>
 
-            <div id="matching_recipes">
-                <ul>
-                    {recipeList.map( (recipe) => {
-                        return <li key={recipe.id}>{recipe.name}<img src={recipe.image} /></li>
-                    }) }
-                </ul>
-            </div>
+            <table>
+                <tr>
+                    <td id="results">
+                        <Results recipeList={recipeList} />
+                    </td>
+                    <td id="recipe">
+                        <RecipeDetails currentRecipe={currentRecipe} />
+                    </td>
+                </tr>
+            </table>
         </div>
     )
 };
