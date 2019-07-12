@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import ReactTags from 'react-tag-autocomplete';
 import axios from 'axios';
-import qs from 'qs';
-import { Link } from 'react-router-dom';
 
 const IngredientsSearch = () => {
     
@@ -49,9 +47,9 @@ const IngredientsSearch = () => {
     });
     
     const [suggestions, setSuggestions] = useState(handleSuggestion);
-    const handleSubmit = () => {
-        // Axios call with Tags
-    };
+    // const handleSubmit = () => {
+    //     // Axios call with Tags
+    // };
 
   
 
@@ -77,6 +75,7 @@ const IngredientsSearch = () => {
 
      return (
         <div>
+            <form onSubmit={handleSubmit}>
             <ReactTags
                 tags={tags}
                 suggestions={suggestions}
@@ -86,10 +85,9 @@ const IngredientsSearch = () => {
                 placeholder="Add an ingredient..." 
                 maxSuggestionsLength='6'/>
                 <div className="btn">
-                    <Link to ='/recipes'>
                     <button className="Ingredients-button" type="submit"><span>I'm Feeling Hungry</span></button>
-                    </Link>
                 </div>
+            </form>
        </div>
     )
 };
