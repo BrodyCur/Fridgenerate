@@ -12,6 +12,10 @@ def convert_to_obj(ingredients, n):
   for i in range(0, len(ingredients), n):
     yield ingredients[i:i+n]
 
+def sorting(lst): 
+  new_lst = sorted(lst, key=len) 
+  return new_lst
+
 def merge():
   allfiles_list = []
   merged_list = []
@@ -24,8 +28,10 @@ def merge():
         print(file)  
   ingredient = flatten(r['ingredients'] for r in merged_list)
   unique_ingredients = list(dict.fromkeys(ingredient))
+  # print(unique_ingredients)
+  sorted_ingredients = sorting(unique_ingredients) 
   ingredient_json = [{'name': chunk[i] for i in range(len(chunk))}
-        for chunk in convert_to_obj(unique_ingredients, 1)]
+    for chunk in convert_to_obj(sorted_ingredients, 1)]
   with open("merged.json", "w") as outfile:
     json.dump(ingredient_json, outfile)
 

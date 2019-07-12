@@ -49,47 +49,40 @@ const IngredientsSearch = () => {
     });
     
     const [suggestions, setSuggestions] = useState(handleSuggestion);
-    const handleSubmit = () => {
-        // Axios call with Tags
-    };
-
-  
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-
+        e.preventDefault();
 
         const url = "http://localhost:8000/recipes/";
-
         console.log("Tags:", tags)
         
         axios.post(url, {
             'data': {'ingredients': tags.map((tag) => tag.name).join(",")}
         })
-        .then(response => {
+        .then((response) => {
             console.log(response.data);
         })
         .catch(e => {
-            console.log("errors:", e)
-        })
-        
+            console.log("errors:", e);
+        });   
     }
 
-     return (
+    return (
         <div>
+            <form onSubmit={handleSubmit}>
             <ReactTags
                 tags={tags}
                 suggestions={suggestions}
                 handleSuggestion={handleSuggestion}
                 handleDelete={handleDelete}
                 handleAddition={handleAddition}
-                placeholder="Add an ingredient..." 
-                maxSuggestionsLength='6'/>
+                placeholder="Add an ingredient..." />
                 <div className="btn">
-                    <Link to ='/recipes'>
+                    {/* <Link to ='/recipes'> */}
                     <button className="Ingredients-button" type="submit"><span>I'm Feeling Hungry</span></button>
-                    </Link>
+                    {/* </Link> */}
                 </div>
+            < /form>
        </div>
     )
 };

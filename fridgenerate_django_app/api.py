@@ -4,7 +4,7 @@ import requests
 import json
 import os
 import pdb
-from fridgenerate.config import api_key
+from .config import api_key
 
 def get_recipe(request):
   recipe_id = json.loads(request.body)['data']['recipe_id']
