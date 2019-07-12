@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import ReactTags from 'react-tag-autocomplete';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import qs from 'qs';
+import { Link } from 'react-router-dom';
 
 const IngredientsSearch = () => {
     
@@ -20,6 +21,7 @@ const IngredientsSearch = () => {
     const [tags, setTags] = useState(initialTags);
     
     const handleDelete = (i) => {
+
         console.log("Handle delete:", i);
         let newTags = tags.slice(0);
         newTags.splice(i, 1);
@@ -51,7 +53,29 @@ const IngredientsSearch = () => {
         // Axios call with Tags
     };
 
-    return (
+  
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+
+        const url = "http://localhost:8000/recipes/";
+
+        console.log("Tags:", tags)
+        
+        axios.post(url, {
+            'data': {'ingredients': tags.map((tag) => tag.name).join(",")}
+        })
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(e => {
+            console.log("errors:", e)
+        })
+        
+    }
+
+     return (
         <div>
             <ReactTags
                 tags={tags}
@@ -66,8 +90,7 @@ const IngredientsSearch = () => {
                     <button className="Ingredients-button" type="submit"><span>I'm Feeling Hungry</span></button>
                     </Link>
                 </div>
-        </div>
-
+       </div>
     )
 };
 

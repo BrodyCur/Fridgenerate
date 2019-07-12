@@ -20,6 +20,8 @@ from fridgenerate_django_app import api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('recipe_details/', api.get_recipe),
+    path('recipes/', api.get_recipes_by_ingredients),
     path('', include('fridgenerate_django_app.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/token/', TokenObtainPairView.as_view()),
