@@ -10,5 +10,5 @@ router.register('users', views.UserView)
 router.register('fridges', views.FridgeView)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
 ]
