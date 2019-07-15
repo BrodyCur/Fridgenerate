@@ -7,7 +7,6 @@ import IngredientsSearch from './IngredientsSearch';
 const Landing = () => {
   return (
     <div>
-    <TopNav />
     <RecipesSearch />
     <section className="Landing">
       <br/>

@@ -35,7 +35,6 @@ def get_recipe(request):
     'instructions': recipe_instruction
   })
 
-
 def get_recipes_by_ingredients(request):
   ingredients_query = json.loads(request.body.decode('utf-8'))
   
@@ -52,7 +51,6 @@ def get_recipes_by_ingredients(request):
 
   recipe_list = json.loads(response.content)
 
-
   return JsonResponse({
     'recipes': [{
       'id': r['id'],
@@ -62,9 +60,8 @@ def get_recipes_by_ingredients(request):
     } for r in recipe_list]
   })
 
-
-def rest_api(request):
-  headers = {}
-  headers['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTYyODc5MjMzLCJqdGkiOiIxY2YzYjIxNDY3MWQ0YjNhODNhZjVlODliYzNjZGI3ZCIsInVzZXJfaWQiOjF9.c60luctge5K9O3pk7OAYCOi6zXWqHGMgyu8dDaBfZx8'
-  response = requests.get('http://localhost:8000/fridges', headers=headers)
-  return HttpResponse(response.text)
+# def rest_api(request):
+#   headers = {}
+#   headers['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTYyODc5MjMzLCJqdGkiOiIxY2YzYjIxNDY3MWQ0YjNhODNhZjVlODliYzNjZGI3ZCIsInVzZXJfaWQiOjF9.c60luctge5K9O3pk7OAYCOi6zXWqHGMgyu8dDaBfZx8'
+#   response = requests.get('http://localhost:8000/fridges', headers=headers)
+#   return HttpResponse(response.text)

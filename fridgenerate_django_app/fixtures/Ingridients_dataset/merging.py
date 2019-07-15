@@ -26,9 +26,9 @@ def merge():
         merged_list = (flatten(allfiles_list)) 
       except ValueError:
         print(file)  
-  ingredient = flatten(r['ingredients'] for r in merged_list)
-  unique_ingredients = list(dict.fromkeys(ingredient))
-  # print(unique_ingredients)
+  ingredients = flatten(r['ingredients'] for r in merged_list)
+  lowercase_ingredients = (x.lower() for x in ingredients)
+  unique_ingredients = list(dict.fromkeys(lowercase_ingredients))
   sorted_ingredients = sorting(unique_ingredients) 
   ingredient_json = [{'name': chunk[i] for i in range(len(chunk))}
     for chunk in convert_to_obj(sorted_ingredients, 1)]

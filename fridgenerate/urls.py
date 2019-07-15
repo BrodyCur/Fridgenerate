@@ -14,17 +14,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from rest_framework_jwt.views import obtain_jwt_token
 from fridgenerate_django_app import api
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('recipe_details/', api.get_recipe),
-    path('recipes/', api.get_recipes_by_ingredients),
+    path('', admin.site.urls),
+    # path('recipe_details/', api.get_recipe),
+    # path('recipes/', api.get_recipes_by_ingredients),
     path('', include('fridgenerate_django_app.urls')),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/token/', TokenObtainPairView.as_view()),
-    path('api/token/refresh/', TokenRefreshView.as_view()),
-    path('api/rest/fridges', api.rest_api)
+    path('api/token/', obtain_jwt_token, name='token_obtain_pair'),
+    # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # path('api/rest/fridges', api.rest_api)
 ]
+

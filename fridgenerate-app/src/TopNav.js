@@ -1,14 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const TopNav= () => {
-  return (
-    <section className="Nav">
-      <div className="Top-nav">
-        <h1>Fridgenerate</h1>
-      </div>
-    </section>
-     
-  );
-}
+const TopNav = ({}) => {
+};
 
 export default TopNav;
