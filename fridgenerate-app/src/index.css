@@ -104,6 +104,54 @@ Input, Input::-webkit-input-placeholder {
   max-width: 100%;
 }
 
+.results {
+  position: relative;
+  text-align: center;
+  padding: 6em 0 0;
+}
+
+.results .recipe-result-name {
+  max-width: 292px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px 10px;
+}
+
+.recipe {
+  padding: 5.5em 10em;
+  float: right;
+}
+
+.recipe-result-img {
+  cursor: pointer;
+}
+
+.recipe-result-name {
+  z-index: 100;
+  color: #007eff;
+  font-size: 16px;
+  background-color: #ebf5ff;
+  display: block;
+  padding: 2px 10px;
+  overflow: hidden;
+  font-family: arial,sans-serif;
+  font-weight: bold;
+}
+
+.recipe-result-missing-ingredients {
+  font-family: arial,sans-serif;
+  color: red;
+  padding: 5px 5px;
+  font-size: 14px;
+  border: 1px solid red;
+}
+
+ul {
+  padding: 0px 0px 10px;
+  list-style-type: none;
+}
+
 @media screen and (min-width: 30em) {
 
   .react-tags__search {

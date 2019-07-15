@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactTags from 'react-tag-autocomplete';
 import axios from 'axios';
+import TEST from './RecipeTest';
 import { Link } from 'react-router-dom';
 
 const IngredientsSearch = () => {
@@ -60,10 +61,10 @@ const IngredientsSearch = () => {
         return (
             <section className="recipe-details">
                 <div className="recipe-summary">
-                    <h1> {currentRecipe.name}</h1>
-                    <img src={currentRecipe.image} />
-                    <p>{currentRecipe.ingredients}</p>
-                    <p>{currentRecipe.instructions}</p>
+                    <div className="recipe-details-name"><h1> {currentRecipe.name}</h1></div>
+                    <div className="recipe-details-img"><img src={currentRecipe.image} /></div>
+                    <div className="recipe-details-org"><p>{currentRecipe.originalString}</p></div>
+                    <div className="recipe-details-inst"><p>{currentRecipe.instructions}</p></div>
                 </div>
             </section>
         )
@@ -71,7 +72,7 @@ const IngredientsSearch = () => {
 
 
     const RecipeResult = ({recipe}) => {
-        
+
         const handleClick = (e) => {
             e.preventDefault();
     
@@ -91,10 +92,17 @@ const IngredientsSearch = () => {
         }
 
         return (
+        <section className="recipe-results">
+            <ul>
                 <li onClick={handleClick} key={recipe.id}>
-                    {recipe.name}
-                    <img src={recipe.image} />
+                    <div className="recipe-result-name">{recipe.name}</div>
+                    <div className="recipe-result-img"><img src={recipe.image} /></div>
+                    {/* <div className="recipe-result-ready">{recipe.readyInMinutes}</div> */}
+                    <div className="recipe-result-missing-ingredients">Missing ingredients: {recipe.missing_ingredients}</div>
                 </li>
+            </ul>
+        </section>
+        
         )
     }
 
@@ -126,19 +134,22 @@ const IngredientsSearch = () => {
                 </div>
             </form>
 
-            <table>
+            <table className="table">
                 <tr>
-                    <td id="results">
+                    <td className="results">
                         <Results recipeList={recipeList} />
                     </td>
-                    <td id="recipe">
+                    <td className="recipe">
                         <RecipeDetails currentRecipe={currentRecipe} />
                     </td>
                 </tr>
             </table>
+            
         </div>
     )
 };
+
+
 
 
 export default IngredientsSearch;
