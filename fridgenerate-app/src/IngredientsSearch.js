@@ -4,10 +4,9 @@ import axios from 'axios';
 import TEST from './RecipeTest';
 import { Link } from 'react-router-dom';
 
-const IngredientsSearch = () => {
+const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
 
     const [tags, setTags] = useState([]);
-    const [recipeList, setRecipeList] = useState([])
     const [currentRecipe, setCurrentRecipe] = useState({})
 
     const handleDelete = (i) => {
