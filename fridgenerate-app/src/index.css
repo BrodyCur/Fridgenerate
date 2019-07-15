@@ -105,26 +105,25 @@ Input, Input::-webkit-input-placeholder {
 }
 
 .results {
-  position: relative;
-  text-align: center;
-  padding: 6em 0 0;
-}
-
-.results .recipe-result-name {
-  max-width: 292px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 5px 10px;
+  height: 1000px;
+  overflow-y: scroll;
 }
 
 .recipe {
-  padding: 5.5em 10em;
+  /* padding: 5.5em 10em; */
+  margin-right: 5em;
   float: right;
+}
+
+.recipe-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 6em 0 0;
 }
 
 .recipe-result-img {
   cursor: pointer;
+  max-width: 300px;
 }
 
 .recipe-result-name {
@@ -137,6 +136,8 @@ Input, Input::-webkit-input-placeholder {
   overflow: hidden;
   font-family: arial,sans-serif;
   font-weight: bold;
+  text-align: center;
+  width: 280px;
 }
 
 .recipe-result-missing-ingredients {
@@ -145,11 +146,21 @@ Input, Input::-webkit-input-placeholder {
   padding: 5px 5px;
   font-size: 14px;
   border: 1px solid red;
+  max-width: 290px;
+  text-align: center;
+}
+
+.recipe-details-img {
+  max-width: 500px;
 }
 
 ul {
   padding: 0px 0px 10px;
   list-style-type: none;
+}
+
+img {
+  width: 100%;
 }
 
 @media screen and (min-width: 30em) {

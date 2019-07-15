@@ -1,15 +1,13 @@
 import React from 'react';
-import TEST from './RecipeTest';
 
-const RecipeDetails = (currentRecipe) => {
+const RecipeDetails = ({ currentRecipe }) => {
     return (
         <section className="recipe-details">
-            <h1>HELLO</h1>
             <div className="recipe-summary">
-                <h1> {currentRecipe.name}</h1>
-                <img src={currentRecipe.image} />
-                <p>{currentRecipe.ingredients}</p>
-                <p>{currentRecipe.instructions}</p>
+                <div className="recipe-details-name"><h1> {currentRecipe.name}</h1></div>
+                <div className="recipe-details-img"><img src={currentRecipe.image} alt={currentRecipe.name}/></div>
+                <div className="recipe-details-org"><p>{currentRecipe.originalString}</p></div>
+                <div className="recipe-details-inst"><p>{currentRecipe.instructions}</p></div>
             </div>
         </section>
     )

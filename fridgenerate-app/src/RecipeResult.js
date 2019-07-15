@@ -1,29 +1,35 @@
-import React, {useState} from 'react';
-import axios from 'axios';
+// import React, {useState} from 'react';
+// import axios from 'axios';
 
 
-const RecipeResult = ({recipe}) => {
+// const RecipeResult = ({recipeList, recipe, setCurrentRecipe}) => {
 
-    const [currentRecipe, setCurrentRecipe] = useState({})
+//     const handleClick = (e) => {
+//         e.preventDefault();
 
+//         const url = "http://localhost:8000/recipe_details/"
 
-        const Results = ({recipeList }) => {
-            return (
-                <section className ="recipe-results">
-                <ul>
-                    {
-                        recipeList.map( (recipe) => {
-                            return <RecipeResult key={recipe.id} recipe={recipe} />
-                        })
-                    }
-                </ul>
-                <td id="results">
-                    <Results recipeList={recipeList} />
-                </td>
-                </section>
+//         axios.post(url, {
+//             'data': {
+//                 'recipe_id': recipe.id
+//             }
+//         })
+//         .then(response => {
+//             setCurrentRecipe(response.data)
+//         })
+//         .catch(e => {
+//             console.log("errors", e)
+//         })
+//     }
 
-            );
-        };
-    };
+//     return (
+//             <li onClick={handleClick}>
+//                 <div className="recipe-result-name">{recipe.name}</div>
+//                 <div className="recipe-result-img"><img src={recipe.image} /></div>
+//                 {/* <div className="recipe-result-ready">{recipe.readyInMinutes}</div> */}
+//                 <div className="recipe-result-missing-ingredients">Missing ingredients: {recipe.missing_ingredients}</div>
+//             </li>
+//     )
+// }
 
-export default RecipeResult;
+// export default RecipeResult;

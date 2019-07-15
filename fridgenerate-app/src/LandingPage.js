@@ -23,20 +23,20 @@ const Landing = () => {
 
   return (
     <div>
-    <TopNav />
-    <RandomRecipes randomHandler={randomClick} />
-    <section className="Landing">
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-        <div className="Landing-title">
-          <h2>Add your ingredients and receive matching recipes instantly !</h2>
-        </div>
-    </section>
-    <IngredientsSearch recipeList={recipeList} setRecipeList={setRecipeList} />
+      <TopNav />
+      <RandomRecipes randomHandler={randomClick} />
+      <section className="Landing">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+          <div className="Landing-title">
+            <h2>Add your ingredients and receive matching recipes instantly !</h2>
+          </div>
+      </section>
+      <IngredientsSearch recipeList={recipeList} setRecipeList={setRecipeList} />
     </div>
   );
 }
