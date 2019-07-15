@@ -6,6 +6,26 @@ import os
 import pdb
 from .config import api_key
 
+def get_random_recipes(request):
+  response = requests.get("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=15",
+    headers={
+      "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      "X-RapidAPI-Key": api_key
+    }
+  )
+
+  recipe_list = json.loads(response.content)
+
+  return JsonResponse({
+    'recipes': [{
+      'id': r['id'],
+      'name': r['title'],
+      'image': r['image'],
+      'missing_ingredients': r['missedIngredientCount']
+    } for r in recipe_list]
+  })
+
+
 def get_recipe(request):
   recipe_id = json.loads(request.body)['data']['recipe_id']
 
