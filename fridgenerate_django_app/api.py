@@ -24,15 +24,18 @@ def get_recipe(request):
   recipe_instruction = recipe["instructions"]
   recipe_ingredients = recipe["extendedIngredients"]
 
+  ingredientStrings = []
   ingredients = []
   for ingredient in recipe_ingredients: 
     ingredients.append(ingredient["name"])
+    ingredientStrings.append(ingredient["originalString"])
 
   return JsonResponse({
     'name': recipe_title,
     'image': recipe_image,
     'ingredients': ingredients,
-    'instructions': recipe_instruction
+    'instructions': recipe_instruction,
+    'originalString': ingredientStrings,
   })
 
 
@@ -58,7 +61,8 @@ def get_recipes_by_ingredients(request):
       'id': r['id'],
       'name': r['title'],
       'image': r['image'],
-      'missing_ingredients': r['missedIngredientCount']
+      # 'readyInMinutes': r['readyInMinutes'],
+      'missing_ingredients': r['missedIngredientCount'],
     } for r in recipe_list]
   })
 

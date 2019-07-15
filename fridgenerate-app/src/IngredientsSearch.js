@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import ReactTags from 'react-tag-autocomplete';
 import axios from 'axios';
 import TEST from './RecipeTest';
+import { Link } from 'react-router-dom';
 
 const IngredientsSearch = () => {
 
     const [tags, setTags] = useState([]);
     const [recipeList, setRecipeList] = useState([])
+    const [currentRecipe, setCurrentRecipe] = useState({})
 
     const handleDelete = (i) => {
         console.log("Handle delete:", i);
@@ -48,15 +50,75 @@ const IngredientsSearch = () => {
         })
         .then(response => {
             setRecipeList(response.data.recipes)
-            console.log(recipeList);
         })
         .catch(e => {
             console.log("errors:", e)
-        })
+        });
+    };
+
+
+    const RecipeDetails = ({ currentRecipe }) => {
+        return (
+            <section className="recipe-details">
+                <div className="recipe-summary">
+                    <div className="recipe-details-name"><h1> {currentRecipe.name}</h1></div>
+                    <div className="recipe-details-img"><img src={currentRecipe.image} /></div>
+                    <div className="recipe-details-org"><p>{currentRecipe.originalString}</p></div>
+                    <div className="recipe-details-inst"><p>{currentRecipe.instructions}</p></div>
+                </div>
+            </section>
+        )
+    };
+
+
+    const RecipeResult = ({recipe}) => {
+
+        const handleClick = (e) => {
+            e.preventDefault();
+    
+            const url = "http://localhost:8000/recipe_details/"
+    
+            axios.post(url, {
+                'data': {
+                    'recipe_id': recipe.id
+                }
+            })
+            .then(response => {
+                setCurrentRecipe(response.data)
+            })
+            .catch(e => {
+                console.log("errors", e)
+            })
+        }
+
+        return (
+        <section className="recipe-results">
+            <ul>
+                <li onClick={handleClick} key={recipe.id}>
+                    <div className="recipe-result-name">{recipe.name}</div>
+                    <div className="recipe-result-img"><img src={recipe.image} /></div>
+                    {/* <div className="recipe-result-ready">{recipe.readyInMinutes}</div> */}
+                    <div className="recipe-result-missing-ingredients">Missing ingredients: {recipe.missing_ingredients}</div>
+                </li>
+            </ul>
+        </section>
+        
+        )
     }
 
+    const Results = ({recipeList }) => {
+        return (
+            <ul>
+                {
+                    recipeList.map( (recipe) => {
+                        return <RecipeResult key={recipe.id} recipe={recipe} />
+                    })
+                }
+            </ul>
+        ) 
+    }
 
-     return (
+    return (
         <div>
             <form onSubmit={handleSubmit}>
                 <ReactTags
@@ -72,16 +134,22 @@ const IngredientsSearch = () => {
                 </div>
             </form>
 
-            <div id="matching_recipes">
-                <ul>
-                    {recipeList.map( (recipe) => {
-                        return <li key={recipe.id}>{recipe.name}<img src={recipe.image} /></li>
-                    }) }
-                </ul>
-            </div>
-       </div>
+            <table className="table">
+                <tr>
+                    <td className="results">
+                        <Results recipeList={recipeList} />
+                    </td>
+                    <td className="recipe">
+                        <RecipeDetails currentRecipe={currentRecipe} />
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
     )
 };
+
+
 
 
 export default IngredientsSearch;
