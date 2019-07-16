@@ -11,9 +11,9 @@ const Results = ( {recipe, recipeList, setCurrentRecipe} ) => {
                 recipeList.map( (recipe) => {
 
                     function missingIngredients() {
-                        if (recipe.missingIngredients) {
+                        if (recipe.missing_ingredients) {
                             return (
-                                <li onClick={handleClick}>
+                                <li className="with-missing-ingredients" onClick={handleClick}>
                                     <div className="recipe-result-name">{recipe.name}</div>
                                     <div className="recipe-result-img"><img src={recipe.image} alt={recipe.name}/></div>
                                     {/* <div className="recipe-result-ready">{recipe.readyInMinutes}</div> */}
@@ -22,7 +22,7 @@ const Results = ( {recipe, recipeList, setCurrentRecipe} ) => {
                             )
                         } else {
                             return (
-                                <li onClick={handleClick}>
+                                <li className="no-missing-ingredients" onClick={handleClick}>
                                     <div className="recipe-result-name-v2">{recipe.name}</div>
                                     <div className="recipe-result-img"><img src={recipe.image} alt={recipe.name}/></div>
                                     {/* <div className="recipe-result-ready">{recipe.readyInMinutes}</div> */}
@@ -51,9 +51,9 @@ const Results = ( {recipe, recipeList, setCurrentRecipe} ) => {
                     }
 
                     return (
-                        <div key={recipe.id} className='recipe-info'>
+                        <ul key={recipe.id} className='recipe-info'>
                             {missingIngredients()}
-                        </div>
+                        </ul>
                     )
                 })
             }

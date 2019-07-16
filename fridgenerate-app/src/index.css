@@ -134,7 +134,7 @@ Input, Input::-webkit-input-placeholder {
   position: relative;
 }
 
-.recipe-info li {
+.no-missing-ingredients {
   padding-top: 15px;
 }
 
@@ -156,13 +156,13 @@ Input, Input::-webkit-input-placeholder {
   white-space: nowrap;
   position: absolute; 
   width: 94%;
-  bottom: 65px;
+  bottom: 45px;
 }
 
 .recipe-result-missing-ingredients {
   font-family: arial,sans-serif;
   color: red;
-  padding: 5px 5px 40px;
+  padding: 5px 5px 10px;
   font-size: 14px;
   text-align: center;
 }
@@ -181,7 +181,7 @@ Input, Input::-webkit-input-placeholder {
   white-space: nowrap;
   position: absolute; 
   width: 94%;
-  bottom: 4px;
+  bottom: 14px;
 }
 
 .recipe-details-name {
