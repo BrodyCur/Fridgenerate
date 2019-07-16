@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactTags from 'react-tag-autocomplete';
 import axios from 'axios';
 import RecipeDetails from './RecipeDetails';
-// import RecipeResult from './RecipeResult';
 import Results from './Results';
 
 const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
