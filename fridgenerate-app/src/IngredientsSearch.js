@@ -62,6 +62,16 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
         }
     }
 
+    function resultsConditional() {
+        if (recipeList.length !== 0) {
+            return (
+                <section className="results">
+                    <Results setCurrentRecipe={setCurrentRecipe} recipeList={recipeList} />
+                </section>
+            )
+        }
+    }
+
 
     return (
         <div>
@@ -82,9 +92,7 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
 
             <div className ='recipe-container'>
                 {recipeTitle()}
-                <section className="results">
-                    <Results setCurrentRecipe={setCurrentRecipe} recipeList={recipeList} />
-                </section>
+                {resultsConditional()}
                 <section className='recipe'>
                     <RecipeDetails currentRecipe={currentRecipe} />
                 </section>
