@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactTags from 'react-tag-autocomplete';
 import axios from 'axios';
-import TEST from './RecipeTest';
+// import TEST from './RecipeTest';
 
 const IngredientsSearch = () => {
 
@@ -75,7 +75,7 @@ const IngredientsSearch = () => {
             <div id="matching_recipes">
                 <ul>
                     {recipeList.map( (recipe) => {
-                        return <li key={recipe.id}>{recipe.name}<img src={recipe.image} /></li>
+                        return <li key={recipe.id}>{recipe.name}<img src={recipe.image} alt="" /></li>
                     }) }
                 </ul>
             </div>

@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
-const TopNav = ({}) => {
+const TopNav = () => {
+  return (
+    <div className="Top-nav" >
+      <h1>Fridgenerate</h1> 
+    </div> 
+  )
 };
 
 export default TopNav;

@@ -7,7 +7,7 @@ const RecipeDetails = () => {
     <section className="recipe-details">
         <div className="recipe-summary">
             <h1> {recipe.name}</h1>
-            <img src={recipe.image} />
+            <img src={recipe.image} alt="" />
             <p>{recipe.ingredients}</p>
             <p>{recipe.instructions}</p>
         </div>
