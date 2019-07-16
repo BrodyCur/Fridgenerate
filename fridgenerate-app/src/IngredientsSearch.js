@@ -94,7 +94,7 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
                 {recipeTitle()}
                 {resultsConditional()}
                 <section className='recipe'>
-                    <RecipeDetails currentRecipe={currentRecipe} />
+                    <RecipeDetails currentRecipe={currentRecipe} setCurrentRecipe={setCurrentRecipe} />
                 </section>
             </div>
         </div>
