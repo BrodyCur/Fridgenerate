@@ -3,6 +3,7 @@ import ReactTags from 'react-tag-autocomplete';
 import axios from 'axios';
 import RecipeDetails from './RecipeDetails';
 import Results from './Results';
+import $ from 'jquery';
 
 const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
 
@@ -57,12 +58,18 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
     function recipeTitle() {
         if (recipeList.length !== 0) {
             return (
-                <h1>RECIPES:</h1>
+                <div className="recipe-list-title">Recipes: </div>
             )
         }
     }
 
+    $(".Ingredients-button").click(function() {
+        $('html, body').animate({
+            scrollTop: $(".recipe-container").offset().top},
+            'slow');
+        });
 
+    
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -75,7 +82,7 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
                     placeholder="Add an ingredient..." 
                     maxSuggestionsLength={6} />
                 <div className="btn">
-                    <button className="Ingredients-button" type="submit"><span>I'm Feeling Hungry</span></button>
+                    <button className="Ingredients-button" type="submit">I'm Feeling Hungry</button>
                 </div>
             </form>
 

@@ -25,9 +25,15 @@ const RecipeDetails = ({ currentRecipe }) => {
                 <div className="recipe-summary">
                     <div className="recipe-details-name"><h1> {currentRecipe.name}</h1></div>
                     <div className="recipe-details-img"><img src={currentRecipe.image} alt={currentRecipe.name}/></div>
-                    <div className="recipe-details-org"><p>{currentRecipe.originalString}</p></div>
-                    <div className="recipe-details-inst"><p>{currentRecipe.instructions}</p></div>
-                    <button onClick={similarRecipesClick} type='button'>Click for Similar Recipes</button>
+                    <div className="recipe-details-org"><p><span>Ingredients: </span>
+                    <br/>
+                    <br/>
+                    {currentRecipe.originalString}</p></div>
+                    <div className="recipe-details-inst"><p><span>Instructions: </span>
+                    <br/>
+                    <br/>
+                    {currentRecipe.instructions}</p></div>
+                    <button className="Ingredients-button" onClick={similarRecipesClick} type='button'>Click for Similar Recipes</button>
                 </div>
             )
         }
