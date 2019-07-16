@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import ReactTags from 'react-tag-autocomplete';
 import axios from 'axios';
-// import TEST from './RecipeTest';
+import RecipeDetails from './RecipeDetails';
+import Results from './Results';
+import $ from 'jquery';
 
-const IngredientsSearch = () => {
+
+const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
 
     const [tags, setTags] = useState([]);
-    const [recipeList, setRecipeList] = useState([])
+    const [currentRecipe, setCurrentRecipe] = useState({})
 
     const handleDelete = (i) => {
         console.log("Handle delete:", i);
@@ -23,7 +26,6 @@ const IngredientsSearch = () => {
     };
 
     const handleSuggestion = (() => {
-        // Do an axios call to an endpoint that returns Ingredients matching sub-string
         const url = `http://localhost:8000/api/ingredients/`;
         axios.get(url)
         .then((response) => {
@@ -31,7 +33,7 @@ const IngredientsSearch = () => {
         })
         .catch((error) => {
             console.log(error);
-        });
+        })
     });
 
     
@@ -47,16 +49,40 @@ const IngredientsSearch = () => {
             'data': {'ingredients': tags.map((tag) => tag.name).join(",")}
         })
         .then(response => {
-            setRecipeList(response.data.recipes);
-            console.log(recipeList);
+            setRecipeList(response.data.recipes)
         })
         .catch(e => {
-            console.log("errors:", e);
+            console.log("errors:", e)
         });
     };
 
+    function recipeTitle() {
+        if (recipeList.length !== 0) {
+            return (
+                <div className="recipe-list-title">Recipes: </div>
+            )
+        }
+    }
 
-     return (
+
+    $(".Ingredients-button").click(function() {
+        $('html, body').animate({
+            scrollTop: $(".recipe-container").offset().top},
+            'slow');
+        });
+
+    function resultsConditional() {
+        if (recipeList.length !== 0) {
+            return (
+                <section className="results">
+                    <Results setCurrentRecipe={setCurrentRecipe} recipeList={recipeList} />
+                </section>
+            )
+        }
+    }
+
+    
+    return (
         <div>
             <form onSubmit={handleSubmit}>
                 <ReactTags
@@ -68,20 +94,22 @@ const IngredientsSearch = () => {
                     placeholder="Add an ingredient..." 
                     maxSuggestionsLength={6} />
                 <div className="btn">
-                    <button className="Ingredients-button" type="submit"><span>I'm Feeling Hungry</span></button>
+                    <button className="Ingredients-button" type="submit">I'm Feeling Hungry</button>
                 </div>
             </form>
 
-            <div id="matching_recipes">
-                <ul>
-                    {recipeList.map( (recipe) => {
-                        return <li key={recipe.id}>{recipe.name}<img src={recipe.image} alt="" /></li>
-                    }) }
-                </ul>
+            <div className ='recipe-container'>
+                {recipeTitle()}
+                {resultsConditional()}
+                <section className='recipe'>
+                    <RecipeDetails currentRecipe={currentRecipe} setCurrentRecipe={setCurrentRecipe} />
+                </section>
             </div>
-       </div>
+        </div>
     )
 };
+
+
 
 
 export default IngredientsSearch;

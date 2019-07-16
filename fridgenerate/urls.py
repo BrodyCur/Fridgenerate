@@ -21,8 +21,10 @@ from fridgenerate_django_app import api
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', admin.site.urls),
-    # path('recipe_details/', api.get_recipe),
-    # path('recipes/', api.get_recipes_by_ingredients),
+    path('recipe_details/', api.get_recipe),
+    path('recipes/', api.get_recipes_by_ingredients),
+    path('random_recipes/', api.get_random_recipes),
+    path('similar_recipes/', api.get_similar_recipes),
     path('', include('fridgenerate_django_app.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/token/', obtain_jwt_token, name='token_obtain_pair'),

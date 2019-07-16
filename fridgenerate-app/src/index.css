@@ -104,6 +104,132 @@ Input, Input::-webkit-input-placeholder {
   max-width: 100%;
 }
 
+.results {
+  height: 1000px;
+  overflow-y: scroll;
+  grid-column-start: 1;
+  margin: 0px 0px 0px 5px;
+}
+
+.recipe {
+  float: right;
+  grid-column-start: 2;
+  padding: 0px 150px;
+}
+
+.recipe-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 5%;
+}
+
+.recipe-container h1 {
+  display: grid;
+  grid-row-start: 1;
+  grid-column-end: 2;
+}
+
+.recipe-info {
+  position: relative;
+}
+
+.no-missing-ingredients {
+  padding-top: 15px;
+}
+
+.recipe-result-img {
+  cursor: pointer;
+}
+
+.recipe-result-name {
+  z-index: 100;
+  background-color: rgba(0,0,0,.5);
+  color: white;
+  font-size: 16px;
+  display: block;
+  padding: 10px 10px;
+  font-family: Georgia, Times, serif;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute; 
+  width: 94%;
+  bottom: 45px;
+}
+
+.recipe-result-missing-ingredients {
+  font-family: arial,sans-serif;
+  color: red;
+  padding: 5px 5px 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.recipe-result-name-v2 {
+  z-index: 100;
+  background-color: rgba(0,0,0,.5);
+  color: white;
+  font-size: 16px;
+  display: block;
+  padding: 10px 10px;
+  overflow: hidden;
+  font-family: Georgia, Times, serif;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute; 
+  width: 94%;
+  bottom: 14px;
+}
+
+.recipe-details-name {
+  text-align: center;
+  font-family: Georgia, Times, serif;
+}
+
+.recipe-details-org {
+  font-size: 16px;
+  font-family: arial,sans-serif;
+}
+
+.recipe-details-inst {
+  font-size: 16px;
+  font-family: arial,sans-serif;
+}
+
+.recipe-list-title {
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  font-family: Georgia, Times, serif;
+  padding: 15px;
+}
+
+.recipe-details-img img {
+  border: 2px solid black;
+}
+
+ul {
+  padding: 0px 0px 10px;
+  list-style-type: none;
+}
+
+img {
+  width: 100%;
+}
+
+.recipe-details-span {
+  font-size: 24px;
+  font-family: Georgia, Times, serif;
+  font-weight: bold;
+}
+
+form {
+  padding-bottom: 6em;
+}
+
 @media screen and (min-width: 30em) {
 
   .react-tags__search {
