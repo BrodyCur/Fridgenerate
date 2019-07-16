@@ -1,14 +1,11 @@
 import React from 'react';
 
-const TopNav= () => {
+const TopNav = () => {
   return (
-    <section className="Nav">
-      <div className="Top-nav">
-        <h1>Fridgenerate</h1>
-      </div>
-    </section>
-     
-  );
-}
+    <div className="Top-nav" >
+      <h1>Fridgenerate</h1> 
+    </div> 
+  )
+};
 
 export default TopNav;

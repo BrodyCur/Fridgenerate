@@ -5,6 +5,7 @@ import RecipeDetails from './RecipeDetails';
 import Results from './Results';
 import $ from 'jquery';
 
+
 const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
 
     const [tags, setTags] = useState([]);
@@ -39,10 +40,10 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
     const [suggestions, setSuggestions] = useState(handleSuggestion);
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         const url = "http://localhost:8000/recipes/";
-        console.log("Tags:", tags)
+        console.log("Tags:", tags);
 
         axios.post(url, {
             'data': {'ingredients': tags.map((tag) => tag.name).join(",")}
@@ -96,7 +97,6 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
                     <button className="Ingredients-button" type="submit">I'm Feeling Hungry</button>
                 </div>
             </form>
-
 
             <div className ='recipe-container'>
                 {recipeTitle()}

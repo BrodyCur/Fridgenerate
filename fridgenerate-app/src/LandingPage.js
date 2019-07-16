@@ -4,7 +4,6 @@ import RandomRecipes from './RandomRecipes';
 import IngredientsSearch from './IngredientsSearch';
 import axios from 'axios';
 
-
 const Landing = () => {
 
   const [recipeList, setRecipeList] = useState([])

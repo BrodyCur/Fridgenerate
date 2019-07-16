@@ -37,12 +37,11 @@ const RecipeDetails = ({ currentRecipe, setCurrentRecipe }) => {
                     <br/>
                     {currentRecipe.instructions}</p></div>
                     <button className="Ingredients-button" onClick={similarRecipesClick} type='button'>Click for Similar Recipes</button>
-
                 </div>
             )
         }
     }
-
+  
     return (
         <section className="recipe-details">
             {recipeDetails()}

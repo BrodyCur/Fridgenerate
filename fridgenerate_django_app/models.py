@@ -1,13 +1,18 @@
 from django.db import models
 
-class User(models.Model):
-  first_name = models.CharField(max_length=50)
-  last_name = models.CharField(max_length=50)
-  email = models.EmailField(max_length=50, unique=True)
-  created = models.DateTimeField
+from django.contrib.auth.models import User
 
-  def __str__(self):
-    return (f'{self.first_name}, {self.last_name}')
+
+# class User(models.Model):
+#   first_name = models.CharField(max_length=50, blank=False)
+#   last_name = models.CharField(max_length=50, blank=False)
+#   email = models.EmailField(max_length=50, unique=True, blank=False)
+#   created = models.DateTimeField(auto_now_add=True)
+
+#   REQUIRED_FIELDS = ['first_name', 'last_name', 'email']
+
+#   def __str__(self):
+#     return (f'{self.first_name}, {self.last_name}')
 
 class Ingredient(models.Model):
   name = models.CharField(max_length=50)
@@ -18,16 +23,15 @@ class Ingredient(models.Model):
 
 class Fridge(models.Model):
   ingredients = models.ManyToManyField(Ingredient)
-  owners = models.ForeignKey(
-      User, on_delete=models.CASCADE, related_name='fridges')
+  owners = models.ForeignKey(User, on_delete=models.CASCADE, related_name='fridges')
 
   def __str__(self):
     return self.owners
 
 class Recipe(models.Model):
-  title = models.CharField(max_length=50)
+  title = models.CharField(max_length=50, blank=False)
   image = models.CharField(max_length=225, null=True)
-  instructions = models.TextField(max_length=2000)
+  instructions = models.TextField(max_length=2000, blank=False)
   ingredients = models.CharField(max_length=50)
   items = models.ManyToManyField(Ingredient)
 

@@ -40,7 +40,6 @@ def get_recipe(request):
     'originalString': ingredientStrings,
   })
 
-
 def get_recipes_by_ingredients(request):
   ingredients_query = json.loads(request.body.decode('utf-8'))
   
@@ -66,7 +65,6 @@ def get_recipes_by_ingredients(request):
       'missing_ingredients': r['missedIngredientCount'],
     } for r in recipe_list]
   })
-
 
 def get_random_recipes(request):
 
