@@ -1,5 +1,4 @@
 import React from 'react';
-
 import axios from 'axios';
 
 const Results = ( {recipe, recipeList, setCurrentRecipe} ) => {
@@ -51,6 +50,7 @@ const Results = ( {recipe, recipeList, setCurrentRecipe} ) => {
                     }
 
                     return (
+
                         <ul key={recipe.id} className='recipe-info'>
                             {missingIngredients()}
                         </ul>
