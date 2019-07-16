@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactTags from 'react-tag-autocomplete';
 import axios from 'axios';
 import RecipeDetails from './RecipeDetails';
-// import RecipeResult from './RecipeResult';
 import Results from './Results';
 
 const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
@@ -55,6 +54,14 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
         });
     };
 
+    function recipeTitle() {
+        if (recipeList.length !== 0) {
+            return (
+                <h1>RECIPES:</h1>
+            )
+        }
+    }
+
 
     return (
         <div>
@@ -74,6 +81,7 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
 
 
             <div className ='recipe-container'>
+                {recipeTitle()}
                 <section className="results">
                     <Results setCurrentRecipe={setCurrentRecipe} recipeList={recipeList} />
                 </section>

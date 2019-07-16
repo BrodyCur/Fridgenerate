@@ -89,33 +89,11 @@ def get_random_recipes(request):
     } for r in recipe_list['recipes']]
   })
 
-  # recipes = []
-
-  # for recipe in recipe_list['recipes']:
-  #   recipe_id = recipe['id']
-  #   display_title = recipe['title']
-  #   display_image = recipe['image']
-
-  #   new_recipe = {
-  #     'id': recipe_id,
-  #     'name': display_title,
-  #     'image': display_image,
-  #   }
-
-  #   # print(recipe)
-
-  #   recipes.append(new_recipe)
-
-  # context = {
-  #   'recipes': recipes
-  # }
-
-  # return JsonResponse(context)
-
 
 def get_similar_recipes(request):
+  recipe_id = json.loads(request.body)['data']['recipe_id']
 
-  similar_url = f"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/{626260}/similar"
+  similar_url = f"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/{recipe_id}/similar"
 
   response = requests.get(similar_url,
     headers={
@@ -125,8 +103,6 @@ def get_similar_recipes(request):
   )
 
   similar_recipes = json.loads(response.content)
-
-  # print(similar_recipes)
 
   return JsonResponse({
     'recipes': [{
