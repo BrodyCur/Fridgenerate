@@ -107,6 +107,7 @@ Input, Input::-webkit-input-placeholder {
 .results {
   height: 1000px;
   overflow-y: scroll;
+  
 }
 
 .recipe {
@@ -118,7 +119,14 @@ Input, Input::-webkit-input-placeholder {
 .recipe-container {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  grid-template-rows: 4.5%;
   padding: 6em 0 0;
+}
+
+.recipe-container h1 {
+  display: grid;
+  grid-row-start: 1;
+  grid-column-end: 2;
 }
 
 .recipe-result-img {

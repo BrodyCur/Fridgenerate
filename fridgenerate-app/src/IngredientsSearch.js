@@ -54,6 +54,14 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
         });
     };
 
+    function recipeTitle() {
+        if (recipeList.length !== 0) {
+            return (
+                <h1>RECIPES:</h1>
+            )
+        }
+    }
+
 
     return (
         <div>
@@ -73,6 +81,7 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
 
 
             <div className ='recipe-container'>
+                {recipeTitle()}
                 <section className="results">
                     <Results setCurrentRecipe={setCurrentRecipe} recipeList={recipeList} />
                 </section>
