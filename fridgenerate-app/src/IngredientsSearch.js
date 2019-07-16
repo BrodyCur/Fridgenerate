@@ -38,22 +38,22 @@ const IngredientsSearch = () => {
     const [suggestions, setSuggestions] = useState(handleSuggestion);
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         const url = "http://localhost:8000/recipes/";
-        console.log("Tags:", tags)
+        console.log("Tags:", tags);
 
         axios.post(url, {
             'data': {'ingredients': tags.map((tag) => tag.name).join(",")}
         })
         .then(response => {
-            setRecipeList(response.data.recipes)
+            setRecipeList(response.data.recipes);
             console.log(recipeList);
         })
         .catch(e => {
-            console.log("errors:", e)
-        })
-    }
+            console.log("errors:", e);
+        });
+    };
 
 
      return (

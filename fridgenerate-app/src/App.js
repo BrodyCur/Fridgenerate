@@ -11,17 +11,19 @@ const AuthButton = withRouter(
   ({ history }) => {
 
     let userLoggedIn = localStorage.getItem('token') ? true : false;
+    let username = localStorage.getItem('user');
 
     const handle_logout = (e) => {
-      e.preventDefault()
+      e.preventDefault();
       localStorage.removeItem('token');
-      history.push("/") 
-    }
+      history.push("/");
+    };
 
     return (
       <div className="user_authentication">
           {userLoggedIn ? (
             <ul>
+              <p>Welcome {username}!</p>
               <li>
                 <a href="/" onClick={e => handle_logout(e)}>Logout</a>
               </li>
@@ -47,7 +49,6 @@ const App = () => {
           <AuthButton />
         </section>
 
-
         <div>
           <Switch>
             <Route path="/" exact component={Landing} />
@@ -58,13 +59,8 @@ const App = () => {
           </Switch>
         </div>
       </Router> 
-    
     </div>
   );
-
-
-
 }
-
 
 export default App;

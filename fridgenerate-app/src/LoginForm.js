@@ -19,7 +19,6 @@ class LoginForm extends React.Component {
     });
   };
 
-
   handle_login = (e, data) => {
     e.preventDefault();
     fetch('http://localhost:8000/api/token/', {
@@ -32,11 +31,10 @@ class LoginForm extends React.Component {
     .then(res => res.json())
     .then(json => {
       localStorage.setItem('token', json.token);
-      // localStorage.setItem('user', json.user.username);
-      this.props.history.push("/")
+      localStorage.setItem('user', json.user.username);
+      this.props.history.push("/");
     });
   };
-
 
   render() {
     return ( 

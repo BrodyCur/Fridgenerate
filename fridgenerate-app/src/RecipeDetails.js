@@ -17,8 +17,7 @@ const RecipeDetails = () => {
     return (
         <div>
         {recipeDet}
-        </div>
-        
+        </div>    
     );
 };
 

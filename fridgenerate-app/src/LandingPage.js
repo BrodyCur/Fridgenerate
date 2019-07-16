@@ -6,8 +6,6 @@ import IngredientsSearch from './IngredientsSearch';
 
 const Landing = () => {
 
-
-
   return (
     <div>
     <RecipesSearch />
