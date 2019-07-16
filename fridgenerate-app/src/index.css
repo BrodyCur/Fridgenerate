@@ -107,19 +107,20 @@ Input, Input::-webkit-input-placeholder {
 .results {
   height: 1000px;
   overflow-y: scroll;
-  
+  grid-column-start: 1;
 }
 
 .recipe {
   /* padding: 5.5em 10em; */
   margin-right: 5em;
   float: right;
+  grid-column-start: 2;
 }
 
 .recipe-container {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 4.5%;
+  grid-template-rows: 5%;
   padding: 6em 0 0;
 }
 
