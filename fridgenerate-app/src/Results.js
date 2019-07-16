@@ -29,12 +29,14 @@ const Results = ( {recipe, recipeList, setCurrentRecipe} ) => {
                   }
 
                 return (
+                <div className="recipe-info">
                   <li onClick={handleClick}>
                       <div className="recipe-result-name">{recipe.name}</div>
                       <div className="recipe-result-img"><img src={recipe.image} alt={recipe.name}/></div>
                       {/* <div className="recipe-result-ready">{recipe.readyInMinutes}</div> */}
                       <div className="recipe-result-missing-ingredients">Missing ingredients: {recipe.missing_ingredients}</div>
                   </li>
+                </div>
           )
               })
           }
