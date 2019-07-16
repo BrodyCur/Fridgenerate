@@ -63,11 +63,22 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
         }
     }
 
+
     $(".Ingredients-button").click(function() {
         $('html, body').animate({
             scrollTop: $(".recipe-container").offset().top},
             'slow');
         });
+
+    function resultsConditional() {
+        if (recipeList.length !== 0) {
+            return (
+                <section className="results">
+                    <Results setCurrentRecipe={setCurrentRecipe} recipeList={recipeList} />
+                </section>
+            )
+        }
+    }
 
     
     return (
@@ -89,11 +100,9 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
 
             <div className ='recipe-container'>
                 {recipeTitle()}
-                <section className="results">
-                    <Results setCurrentRecipe={setCurrentRecipe} recipeList={recipeList} />
-                </section>
+                {resultsConditional()}
                 <section className='recipe'>
-                    <RecipeDetails currentRecipe={currentRecipe} />
+                    <RecipeDetails currentRecipe={currentRecipe} setCurrentRecipe={setCurrentRecipe} />
                 </section>
             </div>
         </div>

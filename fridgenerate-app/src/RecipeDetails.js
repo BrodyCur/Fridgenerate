@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import SimilarRecipes from './SimilarRecipes'
 
-const RecipeDetails = ({ currentRecipe }) => {
+const RecipeDetails = ({ currentRecipe, setCurrentRecipe }) => {
+
+    const [similarRecipesList, setSimilarRecipesList] = useState([])
 
     const similarRecipesClick = () => {
         const url = 'http://localhost:8000/similar_recipes/';
@@ -12,7 +15,7 @@ const RecipeDetails = ({ currentRecipe }) => {
             }
         })
         .then((response) => {
-            console.log(response.data)
+            setSimilarRecipesList(response.data.recipes)
         })
         .catch((error) => {
             console.log(error)
@@ -34,6 +37,7 @@ const RecipeDetails = ({ currentRecipe }) => {
                     <br/>
                     {currentRecipe.instructions}</p></div>
                     <button className="Ingredients-button" onClick={similarRecipesClick} type='button'>Click for Similar Recipes</button>
+
                 </div>
             )
         }
