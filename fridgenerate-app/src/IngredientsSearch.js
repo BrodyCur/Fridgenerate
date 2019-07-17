@@ -59,7 +59,7 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
     function recipeTitle() {
         if (recipeList.length !== 0) {
             return (
-                <div className="recipe-list-title">Recipes: </div>
+                <div className="recipe-list-title">Recipes(15): </div>
             )
         }
     }
