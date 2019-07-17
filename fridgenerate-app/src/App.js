@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Switch, Route }  from 'react-router-dom';
 import Landing from './LandingPage';
-import RecipeListing from './RecipesListing';
 import RecipeDetails from './RecipeDetails';
 import TopNav from './TopNav';
 import LoginForm from './LoginForm';
@@ -122,7 +121,6 @@ class App extends Component {
           <div>
             <Switch>
               <Route path="/" exact component={Landing} />
-              <Route path="/recipes" component={RecipeListing} />
               <Route path="/recipe-details" component={RecipeDetails} />
               {/* <Route path="/login" component={LoginForm} /> */}
               {/* <Route path="/signup" component={SignupForm} /> */}
