@@ -21,7 +21,7 @@ const RecipeDetails = ({ currentRecipe, setCurrentRecipe }) => {
             console.log(error)
         })
     }
-    
+
     function recipeDetails() {
         if (currentRecipe.id) {
             return (
@@ -31,7 +31,9 @@ const RecipeDetails = ({ currentRecipe, setCurrentRecipe }) => {
                     <div className="recipe-details-org"><p><span className="recipe-details-span">Ingredients: </span>
                     <br/>
                     <br/>
-                    {currentRecipe.originalString}</p></div>
+                    {currentRecipe.originalString.map(ingredient => (
+                        <li>{ingredient}</li>
+                    ))}</p></div>
                     <div className="recipe-details-inst"><p><span className="recipe-details-span">Instructions: </span>
                     <br/>
                     <br/>
@@ -41,7 +43,7 @@ const RecipeDetails = ({ currentRecipe, setCurrentRecipe }) => {
             )
         }
     }
-  
+
     return (
         <section className="recipe-details">
             {recipeDetails()}
