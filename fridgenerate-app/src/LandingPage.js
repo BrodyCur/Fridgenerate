@@ -21,7 +21,7 @@ const Landing = () => {
   }
 
   return (
-    <div>
+    <div className="center">
       <RandomRecipes randomHandler={randomClick} />
       <section className="Landing">
         <br/>

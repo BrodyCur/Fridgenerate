@@ -17,11 +17,11 @@ function TopNav(props) {
   return (
     <div>
       <div className="Top-nav" >
-        <div className="Logo">
-          <img src="logo.png" />
+        <div>
+          < img className = "Logo" />
         </div>
-        < div className = "heading">
-        <h1>Fridgenerate</h1> 
+        <div className = "heading">
+          <h1><a href="/"> Fridgenerate</a></h1> 
         </div>
         <div className="user-auth">
           {props.logged_in ? logged_in_nav : logged_out_nav}

@@ -14,17 +14,22 @@ body {
   background-color: black;
   padding: 8px;
   background-color: rgba(0, 0, 0, 0.4);
-  /* background-image: url("logo.png") height=20% ; */
 }
-/* .Logo {
-} */
+
 
 .Top-nav h1 {
-  
   font-family: 'Rubik Mono One', sans-serif;
   font-size: 35px;
   color: #53a8ff;
   text-align: center;
+}
+
+.heading a {
+  text-decoration: none;
+}
+
+.heading a:visited {
+  color: #53a8ff;
 }
 
 .auth-button {
@@ -32,7 +37,14 @@ body {
   cursor: pointer;
   padding: 10px 20px;
   font-family: arial, sans-serif;
- 
+}
+
+.form-box {
+  display: inline-grid;
+  grid-area: c;
+  font-family: arial, sans-serif;
+  font-size: 16px;
+  margin: 0px 20px;
 }
 
 .login {
@@ -42,7 +54,11 @@ body {
   text-decoration: none;
 }
 
+.form-container {
+  display: grid;
+  grid-template-columns: 0fr 2fr 1fr;
 
+}
 
 .signup {
    text-decoration: underline;
@@ -60,10 +76,16 @@ body {
 .user-auth {
     font-family: 'Rubik Mono One', sans-serif;
     color: #53a8ff;
-
     text-align: right;
-
 }
+
+.auth-input {
+  background-color: rgb(255, 255, 255, 0.3);
+}
+
+/* .form-box .auth-input {
+  background-color: rgb(255, 255, 255, 0.3);
+} */
 
 .Landing-title {
   text-align: center;
@@ -94,10 +116,10 @@ body {
   transform: translateY(6px);
 }
 
-Input, Input::-webkit-input-placeholder {
+/* Input::-webkit-input-placeholder {
   font-size: 18px;
   font-family: FontAwesome, 'Indie Flower', cursive;
-}
+} */
 
 .Recipes-form #Recipes-input {
   padding: 5px;
@@ -123,6 +145,8 @@ Input, Input::-webkit-input-placeholder {
   line-height: 2;
   cursor: text;
   border-radius: 25px;
+  font-size: 18px;
+  font-family: FontAwesome, 'Indie Flower', cursive;
 }
 
 .react-tags.is-focused {
@@ -167,6 +191,9 @@ Input, Input::-webkit-input-placeholder {
   background-color: rgb(255,255,255,0)
 }
 
+.react-tags__suggestions {
+  font-family: 'Indie Flower', cursive;
+}
 .results {
   margin-left: 10px;
   padding: 15px;
@@ -306,6 +333,14 @@ img {
 
 form {
   padding-bottom: 6em;
+}
+
+.center {
+  /* position: absolute; */
+  left: 0;
+  /* top: 40%; */
+  width: 100%;
+  font-size: 18px;
 }
 
 img {
