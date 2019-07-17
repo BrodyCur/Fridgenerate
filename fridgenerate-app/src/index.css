@@ -1,3 +1,12 @@
+body {
+  background-image: url("rustic-wood-bg.jpg");
+  z-index: -1;
+}
+
+html {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .Top-nav {
   background-color: black;
   padding: 10px;
@@ -58,6 +67,7 @@ Input, Input::-webkit-input-placeholder {
 }
 
 .react-tags {
+  background-color: white;
   margin: 50px 50px 10px;
   padding: 7px;
   position: relative;
@@ -105,10 +115,12 @@ Input, Input::-webkit-input-placeholder {
 }
 
 .results {
+  margin-left: 10px;
+  padding: 15px;
   height: 1000px;
   overflow-y: scroll;
   grid-column-start: 1;
-  margin: 0px 0px 0px 5px;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .recipe {
@@ -160,7 +172,7 @@ Input, Input::-webkit-input-placeholder {
 
 .recipe-result-missing-ingredients {
   font-family: arial,sans-serif;
-  color: red;
+  color: rgb(204, 1, 1);
   padding: 5px 5px 10px;
   font-size: 14px;
   text-align: center;
