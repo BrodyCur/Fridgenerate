@@ -64,7 +64,6 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
         }
     }
 
-
     $(".Ingredients-button").click(function() {
         $('html, body').animate({
             scrollTop: $(".recipe-container").offset().top},
@@ -97,7 +96,7 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
                     <button className="Ingredients-button" type="submit">I'm Feeling Hungry</button>
                 </div>
             </form>
-
+            
             <div className ='recipe-container'>
                 {recipeTitle()}
                 {resultsConditional()}
