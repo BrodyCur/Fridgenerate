@@ -143,4 +143,6 @@ REST_FRAMEWORK = {
 #     'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',)
 }
 # AUTH_USER_MODEL = 'fridgenerate_django_app.User'
+API_KEY = os.environ.get("API_KEY")
+
 django_heroku.settings(locals())
