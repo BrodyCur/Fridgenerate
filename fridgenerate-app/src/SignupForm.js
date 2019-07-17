@@ -2,40 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SignupForm extends React.Component {
-  state = {
-    username: '',
-    first_name: '',
-    last_name: '',
-    email: '',
-    password: ''
-  };
+    state = {
+      username: '',
+      first_name: '',
+      last_name: '',
+      email: '',
+      password: ''
 
-  handle_change = e => {
-    
-    const name = e.target.name;
-    const value = e.target.value;
-    this.setState(prevstate => {
-      const newState = { ...prevstate };
-      newState[name] = value;
-      return newState;
-    });
-  };
+    };
 
+    handle_change = e => {
+      const name = e.target.name;
+      const value = e.target.value;
+      this.setState(prevstate => {
+        const newState = {
+          ...prevstate
+        };
+        newState[name] = value;
+        return newState;
+      });
+    };
 
-  handle_signup = (e, data) => {
-    e.preventDefault();
-    fetch('http://localhost:8000/users/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(json => {
-      localStorage.setItem('token', json.token);
-    });
-  };
 
   render() {
     return ( 
@@ -87,3 +74,7 @@ class SignupForm extends React.Component {
 }
 
 export default SignupForm;
+
+SignupForm.propTypes = {
+  handle_signup: PropTypes.func.isRequired
+};
