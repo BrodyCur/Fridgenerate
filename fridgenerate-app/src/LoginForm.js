@@ -20,20 +20,25 @@ class LoginForm extends React.Component {
   render() {
     return (
       <form onSubmit={e => this.props.handle_login(e, this.state)}>
-        <label htmlFor="username">Username</label>
+        <h4>Login</h4>
+        <label className="login-form"  htmlFor="username"></label>
         <input
           type="text"
           name="username"
+          placeholder="Username"
           value={this.state.username}
           onChange={this.handle_change}
         />
-        <label htmlFor="password">Password</label>
+        <br />
+        <label className="login-form" htmlFor="password"></label>
         <input
           type="password"
           name="password"
+          placeholder="Password"
           value={this.state.password}
           onChange={this.handle_change}
         />
+        <br />
         <input type="submit" />
       </form>
     );
