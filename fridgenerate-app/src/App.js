@@ -111,19 +111,21 @@ class App extends Component {
             logged_in={this.state.logged_in}
             display_form={this.display_form}
             handle_logout={this.handle_logout}
-          />
+            />
           {form}
-          <h3>
-            {this.state.logged_in
-              ? `Hello, ${this.state.username}`
-              : 'Please Log In'}
-          </h3>
+            <h3>
+              {this.state.logged_in
+                ? `Hello, ${this.state.username}`
+                : ''}
+            </h3>
         <Router>
           <div>
             <Switch>
               <Route path="/" exact component={Landing} />
               <Route path="/recipes" component={RecipeListing} />
               <Route path="/recipe-details" component={RecipeDetails} />
+              {/* <Route path="/login" component={LoginForm} /> */}
+              {/* <Route path="/signup" component={SignupForm} /> */}
             </Switch>
           </div>
         </Router>
