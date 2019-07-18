@@ -18,7 +18,8 @@ function TopNav(props) {
     <div>
       <div className="Top-nav" >
         <div>
-          < img className = "Logo" />
+          <img className = "Logo"
+          src = "https://cdn.vox-cdn.com/uploads/chorus_asset/file/8866023/fridge.gif" / >
         </div>
         <div className = "heading">
           <h1><a href="/"> Fridgenerate</a></h1> 

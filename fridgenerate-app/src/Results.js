@@ -55,6 +55,8 @@ const Results = ( {recipe, recipeList, setCurrentRecipe} ) => {
                             {missingIngredients()}
                         </ul>
                     )
+                }).sort(function(a, b){
+                    return a - b;
                 })
             }
         </ul>

@@ -16,6 +16,12 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.Logo {
+  width: 80px;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  
+}
 
 .Top-nav h1 {
   font-family: 'Rubik Mono One', sans-serif;
@@ -38,6 +44,20 @@ body {
   padding: 10px 20px;
   font-family: arial, sans-serif;
 }
+
+.auth-button .logout {
+  padding: 20px 20px 0 0 ;
+}
+
+.welcome {
+  position: fixed;
+  right: 50px;
+  top: 10px;
+  font-family: arial, sans-serif;
+  color: #53a8ff;
+
+}
+
 
 .form-box {
   display: inline-grid;
