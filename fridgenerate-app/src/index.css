@@ -16,6 +16,12 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.Logo {
+  width: 80px;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  
+}
 
 .Top-nav h1 {
   font-family: 'Rubik Mono One', sans-serif;
