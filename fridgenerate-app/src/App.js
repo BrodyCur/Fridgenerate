@@ -67,17 +67,13 @@ class App extends Component {
       .then(res => res.json())
       .then(json => {
         console.log(data)
-        if (json.user) {
-          localStorage.setItem('token', json.token);
-          this.setState({
-            logged_in: true,
-            displayed_form: '',
-            username: json.username
-          });
-        } else {
-          console.log('please enter blah')
-        };
-      });
+        localStorage.setItem('token', json.token);
+        this.setState({
+          logged_in: true,
+          displayed_form: '',
+          username: json.username
+        });
+    });
   };
 
   handle_logout = () => {

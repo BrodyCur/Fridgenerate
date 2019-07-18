@@ -50,7 +50,7 @@ body {
 }
 
 .welcome {
-  position: fixed;
+  position: absolute;
   right: 50px;
   top: 10px;
   font-family: arial, sans-serif;
