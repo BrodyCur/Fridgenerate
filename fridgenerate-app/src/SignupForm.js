@@ -26,49 +26,56 @@ class SignupForm extends React.Component {
 
   render() {
     return ( 
-      <form onSubmit = { e => this.props.handle_signup(e, this.state)}>
-        <h4>Sign Up</h4>
-        <label htmlFor="username">Username</label> 
-        <input type = "text"
-          name = "username"
-          value = {this.state.username}
-          onChange = {this.handle_change}
-        /> 
-        <br/>
-        <label htmlFor="first_name">First Name</label> 
-        <input type = "text"
-          name = "first_name"
-          value = {this.state.first_name}
-          onChange = {this.handle_change}
-        /> 
+      <div className="form-container">
+        <form className="form-box" onSubmit = { e => this.props.handle_signup(e, this.state)}>
+          <h4>Sign Up</h4>
+          <label className="signup-form" htmlFor="username"></label> 
+          <input className="auth-input" type = "text"
+            name = "username"
+            placeholder="Username"
+            value = {this.state.username}
+            onChange = {this.handle_change}
+          /> 
+          <br/>
+          <label className="signup-form" htmlFor="first_name"></label> 
+          <input className="auth-input" type = "text"
+            name = "first_name"
+            placeholder="First Name"
+            value = {this.state.first_name}
+            onChange = {this.handle_change}
+          /> 
 
-        <br/>
-        <label htmlFor="last_name">Last Name</label>  
-        <input type = "last_name"
-          name = "last_name"
-          value = {this.state.last_name}
-          onChange = {this.handle_change}
-        /> 
- 
-        <br/>
-        <label htmlFor = "email" > Email </label>  
-        <input type = "email"
-          name = "email"
-          value = {this.state.email}
-          onChange = {this.handle_change}
-        /> 
+          <br/>
+          <label className="signup-form" htmlFor="last_name"></label>  
+          <input className="auth-input" type = "last_name"
+            name = "last_name"
+            placeholder="Last Name"
+            value = {this.state.last_name}
+            onChange = {this.handle_change}
+          /> 
+  
+          <br/>
+          <label className="signup-form" htmlFor = "email" ></label>  
+          <input className="auth-input" type = "email"
+            name = "email"
+            placeholder="Eamil"
+            value = {this.state.email}
+            onChange = {this.handle_change}
+          /> 
 
-        <br/>
-        <label htmlFor="password">Password</label> 
-        <input type = "password"
-        name = "password"
-        value = {this.state.password}
-        onChange = {this.handle_change}
-        /> 
+          <br/>
+          <label className="signup-form" htmlFor="password"></label> 
+          <input className="auth-input" type = "password"
+          name = "password"
+          placeholder="Password"
+          value = {this.state.password}
+          onChange = {this.handle_change}
+          /> 
 
-        <br/>
-        <input type="submit" />
-      </form>
+          <br/>
+          <input className="Ingredients-button" type="submit" />
+        </form>
+      </div>
     );
   }
 }
