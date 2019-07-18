@@ -112,7 +112,7 @@ class App extends Component {
             handle_logout={this.handle_logout}
             />
           {form}
-            <h3>
+            <h3 className="welcome">
               {this.state.logged_in
                 ? `Hello, ${this.state.username}`
                 : ''}
