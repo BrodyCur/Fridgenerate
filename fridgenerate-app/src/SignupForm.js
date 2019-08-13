@@ -2,14 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SignupForm extends React.Component {
-    state = {
-      username: '',
-      first_name: '',
-      last_name: '',
-      email: '',
-      password: ''
+    constructor(props) {
+      super(props);
+      this.state = {
+        username: '',
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        errors: {}
+      };
+    }
 
-    };
 
     handle_change = e => {
       const name = e.target.name;
@@ -23,6 +27,15 @@ class SignupForm extends React.Component {
       });
     };
 
+    // formErrors = () => {
+    //   if (this.state.errors !== []) {
+    //     return this.state.errors.map((field, description) => {
+          
+    //        return (<li>{field} - {description}</li>)
+    //     })
+    //   }
+    // }
+
   render() {
     return ( 
       <div className="form-container">
@@ -30,10 +43,10 @@ class SignupForm extends React.Component {
           <h4>Sign Up</h4>
           <label className="signup-form" htmlFor="username"></label> 
           <input className="auth-input" type = "text"
-            name = "username"
+            name="username"
             placeholder="Username"
-            value = {this.state.username}
-            onChange = {this.handle_change}
+            value={this.state.username}
+            onChange={this.handle_change}
           /> 
           <br/>
           <label className="signup-form" htmlFor="first_name"></label> 
@@ -72,6 +85,7 @@ class SignupForm extends React.Component {
           /> 
 
           <br/>
+          {/* {this.formErrors()} */}
           <input className="Ingredients-button" type="submit" />
         </form>
       </div>
@@ -81,6 +95,7 @@ class SignupForm extends React.Component {
 
 export default SignupForm;
 
-SignupForm.propTypes = {
-  handle_signup: PropTypes.func.isRequired
-};
+// SignupForm.propTypes = {
+//   handle_signup: PropTypes.func.isRequired
+//   errors: PropTypes.
+// };

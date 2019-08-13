@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       displayed_form: '',
       logged_in: localStorage.getItem('token') ? true : false,
-      username: ''
+      username: '',
+      errors: {}
     };
   }
 
@@ -75,9 +76,13 @@ class App extends Component {
             username: json.username
           });
         } else {
-          console.log('please enter blah')
+          console.log("No user", data)
+          this.setState({errors: data})
         };
-      });
+      }).catch((data) => {
+        console.log("Catch:", data)
+        this.setState({errors: data}) 
+      })
   };
 
   handle_logout = () => {
@@ -103,6 +108,7 @@ class App extends Component {
       default:
         form = null;
     }
+
 
     return (
       <div className="App">
