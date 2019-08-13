@@ -5,7 +5,9 @@ import json
 import os
 import pdb
 from .config import api_key
+# from django.conf import settings
 
+# api_key = settings.API_KEY
 
 def get_recipe(request):
   recipe_id = json.loads(request.body)['data']['recipe_id']
