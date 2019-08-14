@@ -63,6 +63,7 @@ body {
 .login {
    text-decoration: underline;
 }
+
 .login:hover {
   text-decoration: none;
 }
@@ -75,6 +76,7 @@ body {
 .signup {
    text-decoration: underline;
 }
+
 .signup:hover {
   text-decoration: none;
 }
@@ -82,9 +84,11 @@ body {
 .logout {
    text-decoration: underline;
 }
+
 .logout:hover {
   text-decoration: none;
 }
+
 .user-auth {
     font-family: 'Rubik Mono One', sans-serif;
     color: #53a8ff;
@@ -94,10 +98,6 @@ body {
 .auth-input {
   background-color: rgb(255, 255, 255, 0.3);
 }
-
-/* .form-box .auth-input {
-  background-color: rgb(255, 255, 255, 0.3);
-} */
 
 .Landing-title {
   text-align: center;
@@ -127,11 +127,6 @@ body {
 .Ingredients-button:active {
   transform: translateY(6px);
 }
-
-/* Input::-webkit-input-placeholder {
-  font-size: 18px;
-  font-family: FontAwesome, 'Indie Flower', cursive;
-} */
 
 .Recipes-form #Recipes-input {
   padding: 5px;
@@ -180,7 +175,7 @@ body {
   line-height: inherit;
   color: #007eff;
   border-radius: 25px;
-  border: 1px solid #007eff;
+  /* border: 1px solid #007eff; */
 }
 
 .react-tags__selected-tag:after {
@@ -201,11 +196,18 @@ body {
 
 .react-tags__search input {
   background-color: rgb(255,255,255,0);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .react-tags__suggestions {
   font-family: 'Indie Flower', cursive;
 }
+
 .results {
   margin-left: 10px;
   padding: 15px;
@@ -370,23 +372,7 @@ img {
   }
   
   .react-tags__search {
-    /* this will become the offsetParent for suggestions */
     position: relative;
-  }
-
-  .react-tags__search input {
-    /* prevent autoresize overflowing the container */
-    max-width: 100%;
-
-    /* remove styles and layout from this element */
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: none;
-
-    /* match the font styles */
-    font-size: inherit;
-    line-height: inherit;
   }
 
   .react-tags__search input::-ms-clear {
