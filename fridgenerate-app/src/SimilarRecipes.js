@@ -1,42 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-const SimilarRecipes = ( {similarRecipesList, setCurrentRecipe} ) => {
-  return (
-    <ul>
-            {
-                similarRecipesList.map( (recipe) => {
+const SimilarRecipes = ( {currentRecipe, setCurrentRecipe} ) => {
 
-                    const handleClick = (e) => {
-                        e.preventDefault();
+    const [similarRecipesList, setSimilarRecipesList] = useState([])
 
-                        const url = "http://localhost:8000/recipe_details/";
+    const similarRecipesClick = (e) => {
+        e.preventDefault();
 
-                        axios.post(url, {
-                            'data': {
-                                'recipe_id': recipe.id
-                            }
-                        })
-                        .then(response => {
-                            setCurrentRecipe(response.data)
-                        })
-                        .catch(e => {
-                            console.log("errors", e)
-                        })
-                    }
-
-                    return (
-                        <div key={recipe.id} className='similar-recipe-info'>
-                            <li onClick={handleClick}>
-                                <div className="similar-recipe-result-name">{recipe.name}</div>
-                                <div className="similar-recipe-result-img"><img src={recipe.image} alt={recipe.name}/></div>
-                            </li>
-                        </div>
-                    )
-                })
+        const url = 'http://localhost:8000/similar_recipes/';
+    
+        axios.post(url, {
+            'data': {
+                'recipe_id': currentRecipe.id
             }
-        </ul>
-  )
+        })
+        .then((response) => {
+            setSimilarRecipesList(response.data.recipes)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }
+
+    return (
+        <div>
+            <button className="Ingredients-button" onClick={similarRecipesClick} type='button'>Click for Similar Recipes</button>
+            <ul>
+                {
+                    similarRecipesList.map( (recipe) => {
+
+                        const handleClick = (e) => {
+                            e.preventDefault();
+
+                            const url = "http://localhost:8000/recipe_details/";
+
+                            axios.post(url, {
+                                'data': {
+                                    'recipe_id': recipe.id
+                                }
+                            })
+                            .then(response => {
+                                setCurrentRecipe(response.data)
+                                setSimilarRecipesList([])
+                            })
+                            .catch(e => {
+                                console.log("errors", e)
+                            })
+                        }
+
+                        return (
+                            <li onClick={handleClick} className='similar-recipe-info'>
+                                <p className="similar-recipe-result-name">      {recipe.name}
+                                </p>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+        </div>
+        
+    )
 } 
 
 export default SimilarRecipes;

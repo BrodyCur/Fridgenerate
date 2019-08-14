@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -142,3 +143,6 @@ REST_FRAMEWORK = {
 #     'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',)
 }
 # AUTH_USER_MODEL = 'fridgenerate_django_app.User'
+API_KEY = os.environ.get("API_KEY")
+
+django_heroku.settings(locals())
