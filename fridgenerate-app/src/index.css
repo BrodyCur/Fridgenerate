@@ -1,33 +1,36 @@
-html {
-  background-image: url("rustic-wood-bg.jpg");
-  z-index: -1;
-  background-size: 100%;
-}
+{}
+*,* ::before, *::after {
+    box-sizing: border-box;
+ }
 
 body {
   background-color: rgba(255, 255, 255, 0.1);
+  background-image: url("images/rustic-wood-bg.jpg");
+  z-index: -1;
+  background-size: 100%;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
 }
 
 .Top-nav {
   display:grid;
   grid-template-columns: 1fr 2fr 1fr;
-  background-color: black;
-  padding: 8px;
+  padding: 0.5em;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
 .Logo {
   width: 80px;
   background-color: rgba(0, 0, 0, 0.4);
-
-  
 }
 
 .Top-nav h1 {
   font-family: 'Rubik Mono One', sans-serif;
-  font-size: 35px;
+  font-size: 2em;
   color: #53a8ff;
   text-align: center;
+  padding-left: 20px; 
 }
 
 .heading a {
@@ -49,16 +52,6 @@ body {
   padding: 20px 20px 0 0 ;
 }
 
-.welcome {
-  position: absolute;
-  right: 50px;
-  top: 10px;
-  font-family: arial, sans-serif;
-  color: #53a8ff;
-
-}
-
-
 .form-box {
   display: inline-grid;
   grid-area: c;
@@ -77,7 +70,6 @@ body {
 .form-container {
   display: grid;
   grid-template-columns: 0fr 2fr 1fr;
-
 }
 
 .signup {
@@ -208,7 +200,7 @@ body {
 }
 
 .react-tags__search input {
-  background-color: rgb(255,255,255,0)
+  background-color: rgb(255,255,255,0);
 }
 
 .react-tags__suggestions {
@@ -367,80 +359,83 @@ img {
   border-radius: 25px;
 }
 
-@media screen and (min-width: 30em) {
+@media screen and (max-width: 750px) {
 
+  body {
+  display: inline-block;
+  }
+
+  .Landing-title {
+    font-size: 1.5em;
+  }
+  
   .react-tags__search {
     /* this will become the offsetParent for suggestions */
     position: relative;
   }
 
-}
+  .react-tags__search input {
+    /* prevent autoresize overflowing the container */
+    max-width: 100%;
 
-.react-tags__search input {
-  /* prevent autoresize overflowing the container */
-  max-width: 100%;
+    /* remove styles and layout from this element */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
 
-  /* remove styles and layout from this element */
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: none;
-
-  /* match the font styles */
-  font-size: inherit;
-  line-height: inherit;
-}
-
-.react-tags__search input::-ms-clear {
-  display: none;
-}
-
-.react-tags__suggestions {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-}
-
-@media screen and (min-width: 30em) {
-
-  .react-tags__suggestions {
-    width: 240px;
+    /* match the font styles */
+    font-size: inherit;
+    line-height: inherit;
   }
 
-}
+  .react-tags__search input::-ms-clear {
+    display: none;
+  }
 
-.react-tags__suggestions ul {
-  margin: 4px -1px;
-  padding: 0;
-  list-style: none;
-  background: white;
-  border: 1px solid #D1D1D1;
-  border-radius: 2px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
+  .react-tags__suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
 
-.react-tags__suggestions li {
-  border-bottom: 1px solid #ddd;
-  padding: 6px 8px;
-}
+  .react-tags__suggestions {
+      width: 240px;
+  }
 
-.react-tags__suggestions li mark {
-  text-decoration: underline;
-  background: none;
-  font-weight: 600;
-}
+  .react-tags__suggestions ul {
+    margin: 4px -1px;
+    padding: 0;
+    list-style: none;
+    background: white;
+    border: 1px solid #D1D1D1;
+    border-radius: 2px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
 
-.react-tags__suggestions li:hover {
-  cursor: pointer;
-  background: #eee;
-}
+  .react-tags__suggestions li {
+    border-bottom: 1px solid #ddd;
+    padding: 6px 8px;
+  }
 
-.react-tags__suggestions li.is-active {
-  background: #b7cfe0;
-}
+  .react-tags__suggestions li mark {
+    text-decoration: underline;
+    background: none;
+    font-weight: 600;
+  }
 
-.react-tags__suggestions li.is-disabled {
-  opacity: 0.5;
-  cursor: auto;
+  .react-tags__suggestions li:hover {
+    cursor: pointer;
+    background: #eee;
+  }
+
+  .react-tags__suggestions li.is-active {
+    background: #b7cfe0;
+  }
+
+  .react-tags__suggestions li.is-disabled {
+    opacity: 0.5;
+    cursor: auto;
+  }
 }

@@ -82,7 +82,7 @@ const IngredientsSearch = ( {recipeList, setRecipeList} ) => {
 
     
     return (
-        <div>
+        <div className="s">
             <form onSubmit={handleSubmit}>
                 <ReactTags
                     tags={tags}
