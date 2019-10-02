@@ -95,7 +95,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'fridgenerate',
-        'USER': 'brodycurrie',
+        'USER': 'postgres',
         'HOST': 'localhost',
         # 'PORT': '',
     }
