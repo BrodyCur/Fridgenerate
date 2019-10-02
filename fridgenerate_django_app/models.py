@@ -15,7 +15,7 @@ from django.contrib.auth.models import User
 #     return (f'{self.first_name}, {self.last_name}')
 
 class Ingredient(models.Model):
-  name = models.CharField(max_length=50)
+  name = models.CharField(max_length=500)
   source = models.URLField(max_length=500, blank=True)
 
   def __str__(self):
